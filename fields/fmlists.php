@@ -75,13 +75,13 @@ class JFormFieldFmLists extends JFormFieldList
 		// Stop when there's no API Key
 		if (!$this->apiKey)
 		{
-			return static::wrapLabel('info', JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_API_KEY'));
+			return static::wrapLabel(JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_API_KEY'), 'info');
 		}
 
 		// Stop when there's no API Secret
 		if (!$this->apiSecret)
 		{
-			return static::wrapLabel('info', JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_API_SECRET'));
+			return static::wrapLabel(JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_API_SECRET'), 'info');
 		}
 
 		// Try out the API
@@ -91,7 +91,7 @@ class JFormFieldFmLists extends JFormFieldList
 		}
 		catch (Exception $e)
 		{
-			return static::wrapLabel('error', $e->getMessage());
+			return static::wrapLabel($e->getMessage(), 'error');
 		}
 
 		return $html;

@@ -65,7 +65,7 @@ class JFormFieldFmCustomfields extends JFormFieldFmLists
 		// Stop when there's no List hash
 		if (!$this->listHash)
 		{
-			return static::wrapLabel('info', JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_LIST_HASH'));
+			return static::wrapLabel(JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_LIST_HASH'), 'info');
 		}
 
 		// Try out the api
