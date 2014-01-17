@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+	<name>mod_freshmail2</name>
+	<author>piotr_cz</author>
+	<creationDate>December 2013</creationDate>
+	<copyright>Copyright (C) 2013 - 2014 piotr_cz.
+		All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see
+		LICENSE.txt</license>
+	<authorEmail>hello@piotr.cz</authorEmail>
+	<authorUrl>www.piotr.cz</authorUrl>
+	<version>1.0.0-beta</version>
+	<description>MOD_FRESHMAIL2_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_freshmail2">mod_freshmail2.php</filename>
+		<folder>fields</folder>
+		<folder>language</folder>
+		<folder>libraries</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_freshmail2.xml</filename>
+	</files>
+
+	<languages folder="language">
+		<language tag="pl-PL">pl-PL/pl-PL.mod_freshmail2.ini</language>
+		<language tag="pl-PL">pl-PL/pl-PL.mod_freshmail2.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_freshmail2.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_freshmail2.sys.ini</language>
+	</languages>
+
+	<!-- Update Servers -->
+<!--
+	<updateservers>
+		<server type="extension" priority="2" name="Freshmail subscription module Update Server">https://raw.github.com/piotr-cz/mod_freshmail2/master/update/extension.xml</server>
+	</updateservers>
+-->
+
+	<config>
+		<fields
+			name="params"
+			addfieldpath="modules/mod_freshmail2/fields"
+		>
+			<!-- Basic Options -->
+			<fieldset
+				name="basic"
+			>
+				<!-- API Key -->
+				<field
+					name="FMapiKey"
+					type="text"
+					class="input-xlarge"
+					label="MOD_FRESHMAIL2_FIELD_FMAPIKEY_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_FMAPIKEY_DESC"
+					size="32"
+					filter="raw"
+					default=""
+				/>
+
+				<!-- API Secret -->
+				<field
+					name="FMapiSecret"
+					type="text"
+					class="input-xlarge"
+					label="MOD_FRESHMAIL2_FIELD_FMAPISECRET_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_FMAPISECRET_DESC"
+					size="40"
+					filter="raw"
+					default=""
+				/>
+
+				<!-- Subscribers List -->
+				<field
+					name="FMlistHash"
+					type="FmLists"
+					label="MOD_FRESHMAIL2_FIELD_FMLIST_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_FMLIST_DESC"
+					class="input-xlarge"
+				/>
+
+				<!-- Custom Fields -->
+				<field
+					name="FMdisplayFields"
+					type="FMCustomFields"
+					label="MOD_FRESHMAIL2_FIELD_FMDISPLAYFIELDS_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_FMDISPLAYFIELDS_DESC"
+					multiple="multiple"
+					display_type="true"
+				/>
+
+				<!-- Required Custom Fields -->
+				<field
+					name="FMrequiredFields"
+					type="FMCustomFields"
+					label="MOD_FRESHMAIL2_FIELD_FMREQUIREDFIELDS_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_FMREQUIREDFIELDS_DESC"
+					multiple="multiple"
+				/>
+
+				<!-- TOS menuitem -->
+				<field
+					name="tos_menuitem"
+					type="menuitem"
+					label="MOD_FRESHMAIL2_FIELD_TOS_LINK_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_TOS_LINK_DESC"
+				>
+					<option>JDISABLED</option>
+				</field>
+			</fieldset>
+
+			<!-- Advanced Options -->
+			<fieldset
+				name="advanced"
+			>
+				<field name="spacer_a1" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_FM_ADVANCED_SPACER" />
+
+				<!-- Kody Statusów Subskrybentów -->
+				<field
+					name="FMdefaultState"
+					type="list"
+					label="MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_DESC"
+					default=""
+				>
+					<option value="">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_DEFAULT</option>
+					<option value="1">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_1</option>
+					<option value="2">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_2</option>
+					<option value="3">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_3</option>
+					<option vlaue="4">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_4</option>
+					<option value="5">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_5</option>
+					<option value="8">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_8</option>
+				</field>
+
+				<!-- Wyślij email z potwierdzeniem -->
+				<field
+					name="FMdefaultConfirm"
+					type="list"
+					label="MOD_FRESHMAIL2_FIELD_DEFAULT_CONFIRM_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_DEFAULT_CONFIRM_DESC"
+					default=""
+				>
+					<option value="">MOD_FRESHMAIL2_FIELD_DEFAULT_CONFIRM_OPTION_DEFAULT</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+
+				<field name="spacer_a2" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_NOTIFICATION_SPACER" />
+
+
+				<!-- Notification Enabled -->
+				<field
+					name="notificationOn"
+					type="radio"
+					class="btn-group"
+					label="MOD_FRESHMAIL2_FIELD_NOTIFICATION_ON_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_NOTIFICATION_ON_DESC"
+					default="0"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<!-- Notification Recipient -->
+				<field
+					name="notificationTo"
+					type="email"
+					label="MOD_FRESHMAIL2_FIELD_NOTIFICATION_TO_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_NOTIFICATION_TO_DESC"
+					default=""
+				/>
+
+
+				<field name="spacer_a3" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_OTHER_SPACER" />
+
+
+				<!-- API Timeout -->
+				<field
+					name="FMapiTimeout"
+					type="hidden"
+					class="input-small"
+					defualt="30"
+					filer="int"
+				/>
+
+
+				<!-- Alternative Layout -->
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<!-- Module Class Suffix -->
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
