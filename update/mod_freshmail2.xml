@@ -3,7 +3,7 @@
 	<update>
 		<name>Freshmail subscription</name>
 		<description>Moduł zapisu do newslettera w systemie FreshMail</description>
-		<element>mod_freshmail</element>
+		<element>mod_freshmail2</element>
 		<type>module</type>
 		<folder></folder>
 		<client>0</client>
