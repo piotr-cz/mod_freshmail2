@@ -51,7 +51,7 @@ JHtml::_('behavior.tooltip');
 	<?php // Submit button ?>
 	<div class="control-group">
 		<div class="controls">
-			<button class="btn btn-primary" type="submit"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
+			<button class="btn btn-primary" type="submit" name="submit" value="<?php echo $control ?>"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 		</div>
 	</div>
 

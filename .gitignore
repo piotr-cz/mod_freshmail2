@@ -2,4 +2,8 @@
 # Gitignore
 ##
 
+# Builds
 /*.zip
+
+# Backup files
+/*.bak

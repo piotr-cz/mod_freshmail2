@@ -33,7 +33,7 @@ JHtml::_('behavior.tooltip');
 		<input name="<?php echo $control ?>[email]" type="email" class="input-small required" required="required" placeholder="<?php echo JText::_('MOD_FRESHMAIL2_FIELD_EMAIL') ?>" />
 
 		<?php // Submit button ?>
-		<button class="bnt btn-primary add-on" type="submit"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
+		<button class="bnt btn-primary add-on" type="submit" name="submit" value="<?php echo $control ?>"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 	</div>
 
 	<?php echo JHtml::_('form.token') ?>

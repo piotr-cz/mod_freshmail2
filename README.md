@@ -1,7 +1,7 @@
 FreshMail Subscription Module
 =============================
 
-![JED icon](./artwork/JED_icon.png "mod_freshmail")
+![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 
 Moduł zapisu do newslettera w systemie [FreshMail](http://freshmail.pl/)
 
@@ -11,7 +11,10 @@ Funkcje
  - Zarządzanie __polami dodatkowymi__ (Wyświetlane, Wymagane)
  - Powiadomienie o nowym subksrybencie na email
  - Opcja odnośnika do regulaminu w formularzu
- - 2 układy (layouty) do wyboru
+ - Układy (layouty) do wyboru
+  - Horyzontalny (Twitter Bootstrap 2.3)
+  - Rzędowy (Bootstrap 2.3)
+  - Beez (Joomla 2.5)
 
 
 Wymagania
