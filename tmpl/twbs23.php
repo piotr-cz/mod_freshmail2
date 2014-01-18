@@ -13,7 +13,7 @@ JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.tooltip');
 ?>
-<form method="post" class="form-horizontal <?php echo moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>">
+<form method="post" class=" <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>">
 	<?php // Custom Fields ?>
 	<?php foreach ($customFields as $field) : ?>
 	<div class="control-group">

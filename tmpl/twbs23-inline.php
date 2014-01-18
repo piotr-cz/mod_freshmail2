@@ -13,7 +13,7 @@ JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.tooltip');
 ?>
-<form method="post" class="form-inline <?php echo moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>" >
+<form method="post" class="form-inline <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>" >
 	<?php // Terms of Service ?>
 	<?php if ($tosLink) : ?>
 	<label class="checkbox">
@@ -33,7 +33,7 @@ JHtml::_('behavior.tooltip');
 		<input name="<?php echo $control ?>[email]" type="email" class="input-small required" required="required" placeholder="<?php echo JText::_('MOD_FRESHMAIL2_FIELD_EMAIL') ?>" />
 
 		<?php // Submit button ?>
-		<button class="bnt btn-primary add-on" type="submit" name="submit" value="<?php echo $control ?>"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
+		<button class="btn btn-primary" type="submit" name="submit" value="<?php echo $control ?>"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 	</div>
 
 	<?php echo JHtml::_('form.token') ?>
