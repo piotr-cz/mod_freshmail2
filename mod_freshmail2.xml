@@ -9,7 +9,7 @@
 		LICENSE.txt</license>
 	<authorEmail>hello@piotr.cz</authorEmail>
 	<authorUrl>www.piotr.cz</authorUrl>
-	<version>1.0.0-beta.3</version>
+	<version>1.0.0-beta.4</version>
 	<description>MOD_FRESHMAIL2_XML_DESCRIPTION</description>
 
 	<files>
@@ -30,11 +30,18 @@
 		<language tag="en-GB">en-GB/en-GB.mod_freshmail2.sys.ini</language>
 	</languages>
 
+	<!-- Media -->
+	<media folder="media" destination="mod_freshmail2">
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
+
 	<!-- Update Servers -->
 	<updateservers>
 		<server type="extension" priority="2" name="Freshmail subscription module Update Server">https://raw.github.com/piotr-cz/mod_freshmail2/master/update/mod_freshmail2.xml</server>
 	</updateservers>
 
+	<!-- Configuration -->
 	<config>
 		<fields
 			name="params"
@@ -103,7 +110,21 @@
 					label="MOD_FRESHMAIL2_FIELD_TOS_LINK_LABEL"
 					description="MOD_FRESHMAIL2_FIELD_TOS_LINK_DESC"
 				>
-					<option>JDISABLED</option>
+					<option value="">JDISABLED</option>
+				</field>
+
+				<!-- Ajax -->
+				<field
+					name="ajax_enabled"
+					type="radio"
+					class="btn-group"
+					label="MOD_FRESHMAIL2_FIELD_ENABLE_AJAX_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_ENABLE_AJAX_DESC"
+					filter="int"
+					default="0"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 			</fieldset>
 

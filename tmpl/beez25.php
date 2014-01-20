@@ -11,9 +11,8 @@ defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
-JHtml::_('behavior.tooltip');
 ?>
-<form method="post" class="mod_freshmail<?php echo $moduleclass_sfx ?> form-validate" action="<?php echo JUri::getInstance() ?>">
+<form method="post" class="mod_freshmail<?php echo $moduleclass_sfx ?> form-validate" action="<?php echo JUri::getInstance() ?>" data-freshmail2="<?php echo $control ?>">
 	<fieldset class="userdata">
 		<?php // Custom Fields ?>
 		<?php foreach ($customFields as $field) : ?>
@@ -44,7 +43,7 @@ JHtml::_('behavior.tooltip');
 		<?php endif ?>
 
 		<?php // Submit button ?>
-		<button type="submit" class="button validate" name="submit" value="<?php echo $control ?>"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
+		<button type="submit" class="button validate"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 
 		<?php echo JHtml::_('form.token') ?>
 	</fieldset>

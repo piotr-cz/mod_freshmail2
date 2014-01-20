@@ -11,9 +11,16 @@ defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
-JHtml::_('behavior.tooltip');
+
+// Load Ajax scripts
+if ($isAjaxEnabled)
+{
+	JHtml::_('jquery.framework');
+	JHtml::_('script', 'system/core.js', false, true);
+ 	JHtml::_('script', 'mod_freshmail2/submit.js', false, true);
+}
 ?>
-<form method="post" class=" <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>">
+<form method="post" class=" <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>" data-freshmail2="<?php echo $control ?>">
 	<?php // Custom Fields ?>
 	<?php foreach ($customFields as $field) : ?>
 	<div class="control-group">
@@ -51,7 +58,7 @@ JHtml::_('behavior.tooltip');
 	<?php // Submit button ?>
 	<div class="control-group">
 		<div class="controls">
-			<button class="btn btn-primary" type="submit" name="submit" value="<?php echo $control ?>"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
+			<button class="btn btn-primary" type="submit"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 		</div>
 	</div>
 

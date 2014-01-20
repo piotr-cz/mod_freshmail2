@@ -57,32 +57,21 @@ class ModFreshmail2Helper
 			return false;
 		}
 
-		// Custom fields == show intersect require
-		$validateFields = array_intersect(
-			$params->get('FMdisplayFields', array()),
-			$params->get('FMrequiredFields', array())
-		);
-
 		// Validate custom fields
 		$validates = true;
+		$customFields = static::getCustomFields($params);
 
-		foreach ($validateFields as $fieldTag)
+		foreach ($customFields as $field)
 		{
-			// Stop on first err
-			if (empty($data[$fieldTag]))
+			if ($field->required && empty($data['custom_fields'][$field->tag]))
 			{
-				$app->enqueueMessage(JText::sprintf('MOD_FRESHMAIL2_ERROR_FIELD', $fieldTag), 'notice');
+				$app->enqueueMessage(JText::sprintf('MOD_FRESHMAIL2_ERROR_FIELD', $field->name), 'notice');
 
 				$validates = false;
 			}
 		}
 
-		if (!$validates)
-		{
-			return false;
-		}
-
-		return true;
+		return $validates;
 	}
 
 	/**
@@ -160,7 +149,7 @@ class ModFreshmail2Helper
 		// OK
 		if ($response['status'] === 'OK')
 		{
-			$app->enqueueMessage(JText::_('MOD_FRESHMAIL2_SUCCESS'), 'info');
+			$app->enqueueMessage(JText::_('MOD_FRESHMAIL2_SUCCESS'), 'success');
 
 			return true;
 		}
@@ -372,5 +361,66 @@ class ModFreshmail2Helper
 		}
 
 		return $item->link . '&Itemid=' . $itemId;
+	}
+
+	/**
+	 * Ajax event
+	 * Need js client to work.
+	 *
+	 * @return   mixed
+	 *
+	 * @note   Example use: ?option=com_ajax
+	 *                      &format=json
+	 *                      &module=freshmail2
+	 *                      &method=post
+	 *                      &ignoreMessages=0
+	 *                      &control=[control]
+	 *                      &[control]=[form]
+	 *
+	 * @since  3.1
+	 */
+	public static function postAjax()
+	{
+		// Get JInput object
+		$input = JFactory::getApplication()->input;
+
+		// Load module language file
+		$lang = JFactory::getLanguage();
+		$lang->load('mod_freshmail2', JPATH_SITE)
+			|| $lang->load('mod_freshmail2', __DIR__);
+
+		// Get module id
+		$control = $input->get('control', '');
+		if (!$control)
+		{
+			return new LogicException('No module id');
+		}
+
+		// Load module
+		$moduleId = substr($control, 4);
+		$table = JTable::getInstance('module');
+
+		if (!$table->load(array('id' => $moduleId)))
+		{
+			return new LogicException('No module');
+		}
+
+		// Decode mnodule params
+		$params = new JRegistry;
+		$params->loadString($table->params);
+
+		// Read POSTed data
+		$inputData = $input->post->get($control, null, 'array');
+
+		// Process POSTed data (Valid, Added, Notified)
+		if (!empty($inputData)
+			&& static::validate($inputData, $params)
+			&& static::addContact($inputData, $params)
+			&& static::sendEmail($inputData, $params))
+		{
+			return JText::_('MOD_FRESHMAIL2_SUCCESS');
+		}
+
+		return new UnexpectedValueException('Cannot add contact');
 	}
 }

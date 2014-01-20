@@ -30,19 +30,19 @@ if (!$params->get('FMapiKey')
 $control			= 'mod_' . $module->id;
 $inputData			= $input->post->get($control, null, 'array');
 
-// POSTed data (Valid, Added, Notified)
+// Process POSTed data (Valid, Added, Notified)
 if (!empty($inputData)
 	&& ModFreshmail2Helper::validate($inputData, $params)
 	&& ModFreshmail2Helper::addContact($inputData, $params)
 	&& ModFreshmail2Helper::sendEmail($inputData, $params))
 {
-	// All OK
+	// All is OK
 }
 
 
 // Get TOS link
 $tosLink			= ModFreshmail2Helper::getMenuLink($params->get('tos_menuitem'));
-
+$isAjaxEnabled		= (is_dir(JPATH_SITE . '/components/com_ajax') && $params->get('ajax_enabled', 0));
 
 // Get list of custom fields
 $customFields 		= ModFreshmail2Helper::getCustomFields($params);
