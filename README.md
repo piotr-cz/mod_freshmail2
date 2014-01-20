@@ -3,51 +3,50 @@ FreshMail Subscription Module
 
 ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 
-Moduł zapisu do newslettera w systemie [FreshMail](http://freshmail.pl/)
+Module for newsletter subscription in [Freshmail](http://freshmail.pl/) system
+
+Functionality
+-------------
+- __fustom fields__ management (Displaying, Required)
+- New subscription notifications by email
+- Option to use terms of service in form
+- Layouts
+ - Horizontal (Twitter Bootstrap 2.3)
+ - Inline (Bootstrap 2.3)
+ - Beez (Joomla 2.5)
 
 
-Funkcje
--------
- - Zarządzanie __polami dodatkowymi__ (Wyświetlane, Wymagane)
- - Powiadomienie o nowym subksrybencie na email
- - Opcja odnośnika do regulaminu w formularzu
- - Układy (layouty) do wyboru
-  - Horyzontalny (Twitter Bootstrap 2.3)
-  - Rzędowy (Bootstrap 2.3)
-  - Beez (Joomla 2.5)
-
-
-Wymagania
----------
+Requirements
+------------
 
 - Joomla 2.5+
 - PHP 5.3
-- Konto w systemie FreshMail
+- Account in Freshmail system
 
 
-Instalacja
-----------
-
-1. Pobierz najnowszą wersję z [Etykiet](https://github.com/piotr-cz/mod_freshmail2/tags) i zainstaluj za pomocą Instalatora Rozszerzeń Joomla _(Rozszerzenia > Instalacje > Instaluj z pakietu)_.
-2. Dodaj moduł _(Rozszerzenia > Moduły > Utwórz > Freshmail Subscription)_
-
-
-Konfiguracja
+Installation
 ------------
 
-1. Wstaw **Klucz API** konta Freshmail _(Opcje > Klucz API)_
-2. Wstaw **API Sekret** _(Opcje > API Sekret)_
-3. Wybierz listę odbiorców _(Opcje > Lista odbiorców)_
+1. Download newest version from [Tags](https://github.com/piotr-cz/mod_freshmail2/tags) and install using Extension Manager _(Extensions > Extension Manager > Upload Package File)_.
+2. Add module _(Extensions > Module Manager > New > Freshmail Subscription)_
 
 
-Autorzy
+Configuration
+-------------
+
+1. Enter Freshmail account **API Key** _(Opcje > Klucz API)_
+2. Enter **API Secret** _(Opcje > API Sekret)_
+3. Select Subscribers list _(Opcje > Lista odbiorców)_
+
+
+Authors
 -------
 
 - [piotr_cz](https://github.com/piotr-cz)
 - [FreshMail.pl](http://freshmail.pl)
 
 
-Błędy/ Nowe funkcje
--------------
+Issues/ Feature requirements
+----------------------------
 
-[Zgłoś błąd lub propozycję nowej funkcji tutaj](https://github.com/piotr-cz/mod_freshmail2/issues)
+[Submit issue or feature requirement here](https://github.com/piotr-cz/mod_freshmail2/issues)
