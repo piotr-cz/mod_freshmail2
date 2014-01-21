@@ -7,7 +7,7 @@ Module for newsletter subscription in [Freshmail](http://freshmail.pl/) system
 
 Functionality
 -------------
-- __fustom fields__ management (Displaying, Required)
+- _Custom fields_ management (Displaying, Required)
 - New subscription notifications by email
 - Option to use terms of service in form
 - Layouts
