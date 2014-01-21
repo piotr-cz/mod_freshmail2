@@ -28,13 +28,22 @@ if (!$params->get('FMapiKey')
 
 // Get parameters
 $control			= 'mod_' . $module->id;
+
+// Get posted data
 $inputData			= $input->post->get($control, null, 'array');
+
+// Limits (not on POST)
+if (empty($inputData) && ModFreshmail2Helper::canSkip($control, $params))
+{
+	return;
+}
 
 // Process POSTed data (Valid, Added, Notified)
 if (!empty($inputData)
 	&& ModFreshmail2Helper::validate($inputData, $params)
 	&& ModFreshmail2Helper::addContact($inputData, $params)
-	&& ModFreshmail2Helper::sendEmail($inputData, $params))
+	&& ModFreshmail2Helper::sendEmail($inputData, $params)
+	&& ModFreshmail2Helper::postHook($control, $params))
 {
 	// All is OK
 }

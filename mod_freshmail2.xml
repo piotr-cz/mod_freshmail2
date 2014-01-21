@@ -9,7 +9,7 @@
 		LICENSE.txt</license>
 	<authorEmail>hello@piotr.cz</authorEmail>
 	<authorUrl>www.piotr.cz</authorUrl>
-	<version>1.0.0-beta.4</version>
+	<version>1.0.0-b.5</version>
 	<description>MOD_FRESHMAIL2_XML_DESCRIPTION</description>
 
 	<files>
@@ -142,10 +142,49 @@
 				/>
 
 
+				<field name="spacer_a4" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_LIMIT_SPACER" />
+
+				<!-- Limit registrations -->
+				<field
+					name="limit_registered"
+					type="radio"
+					class="btn-group"
+					label="MOD_FRESHMAIL2_FIELD_LIMIT_REGISTERED_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_LIMIT_REGISTERED_DESC"
+					default="0"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<!-- Limit time -->
+				<field
+					name="limit_time"
+					type="text"
+					class="input-mini"
+					label="MOD_FRESHMAIL2_FIELD_LIMIT_TIME_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_LIMIT_TIME_DESC"
+					filter="int"
+					default="0"
+				/>
+
+
+				<!-- Max impressions -->
+				<field
+					name="limit_count"
+					type="text"
+					class="input-mini"
+					label="MOD_FRESHMAIL2_FIELD_LIMIT_COUNT_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_LIMIT_COUNT_DESC"
+					filter="int"
+					default="0"
+				/>
+
+
 				<field name="spacer_a1" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_FM_ADVANCED_SPACER" />
 
 
-				<!-- Kody Statusów Subskrybentów -->
+				<!-- Kody Statusow Subskrybentow -->
 				<field
 					name="FMdefaultState"
 					type="list"
@@ -162,7 +201,7 @@
 					<option value="8">MOD_FRESHMAIL2_FIELD_DEFAULT_STATE_OPTION_8</option>
 				</field>
 
-				<!-- Wyślij email z potwierdzeniem -->
+				<!-- Wyslij email z potwierdzeniem -->
 				<field
 					name="FMdefaultConfirm"
 					type="list"

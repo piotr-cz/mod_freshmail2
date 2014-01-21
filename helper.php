@@ -75,6 +75,101 @@ class ModFreshmail2Helper
 	}
 
 	/**
+	 * Check if can skip module rendering
+	 *
+	 * @param   string     $control
+	 * @param   JRegistry  $params
+	 *
+	 * @return  boolean  True to skip module rendering
+	 *
+	 * @note    Doesn't use on cookie: Possible read/write conflict with
+	 *          multiple modules as JInput doesn't throttle IO operations 
+	 *          till request EOL.
+	 */
+	public static function canSkip($control, JRegistry $params)
+	{
+		// Get parameters
+		$limit_time = $params->get('limit_time', 0);
+		$limit_count = $params->get('limit_count', 0);
+		$limit_registered = $params->get('limit_registered', 0);
+
+		// No cookies required
+		if (!$limit_time && !$limit_count && !$limit_registered)
+		{
+			return false;
+		}
+
+		// Read cookie
+		$inputCookie = JFactory::getApplication()->input->cookie;
+		$dataString = $inputCookie->get('freshmail2_' . $control, null, 'string');
+
+		// Decode data
+		$data = ($dataString) ? json_decode($dataString) : (object) array('time' => 0, 'count' => 0, 'state' => 0);
+
+		// Limit multi-registrations
+		if ($limit_registered && $data->registered)
+		{
+			return true;
+		}
+
+		// Check time limit vs last shown
+		if ($limit_time)
+		{
+			if ($data->time && $limit_time <= (time() - $data->time) / 60)
+			{
+				return true;
+			}
+			else if (!$data->time)
+			{
+				$data->time = time();
+			}
+		}
+
+		// Check count limit
+		if ($limit_count)
+		{
+			if ($data->count && $limit_count <= $data->count)
+			{
+				return true;
+			}
+			else
+			{
+				++$data->count;
+			}
+		}
+
+		// Store data
+		$inputCookie->set('freshmail2_' . $control, json_encode($data), time() + 30 * 24 * 3600);
+
+		return false;
+	}
+
+	/**
+	 * Post sumbmit hook
+	 *
+	 * @param   string     $control
+	 * @param   JRegistry  $params
+	 *
+	 * @return  Boolean  True
+	 */
+	public static function postHook($control, JRegistry $params)
+	{
+		// Save state in cookie
+		if ($params->get('limit_registered', 0))
+		{
+			$inputCookie = JFactory::getApplication()->input->cookie;
+			$dataString = $inputCookie->get('freshmail2_' . $control, null, 'string');
+
+			$data = ($dataString) ? json_decode($dataString) : (object) array('time' => 0, 'count' => 0, 'state' => 0);
+			$data->state = true;
+
+			$inputCookie->set('freshmail2_' . $control, json_encode($data), time() + 30 * 24 * 3600);
+		}
+
+		return true;
+	}
+
+	/**
 	 * Add contact to list
 	 *
 	 * @param   array      $data    Data to add
@@ -416,8 +511,10 @@ class ModFreshmail2Helper
 		if (!empty($inputData)
 			&& static::validate($inputData, $params)
 			&& static::addContact($inputData, $params)
-			&& static::sendEmail($inputData, $params))
+			&& static::sendEmail($inputData, $params)
+			&& static::postHook($control, $params))
 		{
+			// All is OK
 			return JText::_('MOD_FRESHMAIL2_SUCCESS');
 		}
 
