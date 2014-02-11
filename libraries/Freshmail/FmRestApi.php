@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Freshmail.Site
+ * @package     Freshmail2.Site
  * @subpackage  lib_freshmail
  *
  * @copyright   Copyright (C) 2013 - 2014 piotr_cz. Inc. All rights reserved.
@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 /**
  * Freshmail Rest Api extended to use JHttp package
  *
- * @package     Freshmail.Site
+ * @package     Freshmail2.Site
  * @subpackage  lib_freshmail
  * @since       1.0
  *
@@ -293,7 +293,7 @@ class JFmRestApi // extends FmRestApi
 /**
  * FM Rest Exception object
  *
- * @package     Freshmail.Site
+ * @package     Freshmail2.Site
  * @subpackage  lib_freshmail
  *
  * @since       2.0

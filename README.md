@@ -45,7 +45,6 @@ Authors
 -------
 
 - [piotr_cz](https://github.com/piotr-cz)
-- [FreshMail.pl](http://freshmail.pl)
 
 
 Issues/ Feature requirements

@@ -1,5 +1,5 @@
 /**
- * @package     Freshmail.Site
+ * @package     Freshmail2.Site
  * @subpackage  mod_freshmail2
  *
  * @copyright   Copyright (C) 2013 - 2014 piotr_cz, Inc. All rights reserved.

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Joomla.Module
+ * @package     Freshmail2.Site
  * @subpackage  mod_freshmail2
  *
  * @copyright   Copyright (C) 2013 - 2014 piotr_cz, Inc. All rights reserved.
@@ -16,7 +16,7 @@ JLoader::register('ModFreshmail2Helper', JPATH_ROOT . '/modules/mod_freshmail2/h
 /**
  * Lists field class for mod_freshmail2
  *
- * @package     Joomla.Module
+ * @package     Freshmail2.Site
  * @subpackage  mod_freshmail2
  *
  * @since       1.0
