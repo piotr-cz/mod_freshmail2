@@ -269,10 +269,13 @@ class JFmRestApi // extends FmRestApi
 
 		$httpMethod = ($strPostData) ? 'POST' : 'GET';
 
-		// Send request
+		// Send request.
+		// Note: For Platform <= 11.4 headers must be included in request itself.
 		/* @type JHttpResponse Object */
 		/* @throws UnexpectedValueException */
-		$responseObject = ($strPostData) ? $jHttp->post($requestUri, $strPostData) : $jHttp->get($requestUri);
+		$responseObject = ($strPostData) 
+			? $jHttp->post($requestUri, $strPostData, $arrHeaders) 
+			: $jHttp->get($requestUri, $arrHeaders);
 
 		// Assign response variables
 		$this->response = $responseObject->body;
