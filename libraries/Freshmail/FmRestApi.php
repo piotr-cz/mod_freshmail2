@@ -9,6 +9,11 @@
 
 defined('_JEXEC') or die;
 
+// Import dependencies
+JLoader::import('joomla.http.http');
+JLoader::import('joomla.http.httpfactory');
+JLoader::import('joomla.http.transport.curl');
+
 /**
  * Freshmail Rest Api extended to use JHttp package
  *
@@ -251,7 +256,15 @@ class JFmRestApi // extends FmRestApi
 		));
 
 		// Get HTTP Client
-		$jHttp = JHttpFactory::getHttp($options, 'Curl');
+		// Note: JHttpFactory is available since Platform 12.1
+		if (class_exists('JHttpFactory'))
+		{
+			$jHttp = JHttpFactory::getHttp($options, 'Curl');
+		}
+		else
+		{
+			$jHttp = new JHttp($options, new JHttpTransportCurl(new JRegistry));
+		}
 
 
 		$httpMethod = ($strPostData) ? 'POST' : 'GET';
