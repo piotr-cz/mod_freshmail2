@@ -14,6 +14,7 @@ Functionality
  - Horizontal (Twitter Bootstrap 2.3)
  - Inline (Bootstrap 2.3)
  - Beez (Joomla 2.5)
+ - Atomic (Joomla 2.5)
 - Limit Module Impressions or Duration or hide after submission
 - Ajax submission (req. Joomla 3.1+)
 

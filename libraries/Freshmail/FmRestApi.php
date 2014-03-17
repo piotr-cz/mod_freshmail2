@@ -200,9 +200,9 @@ class JFmRestApi // extends FmRestApi
 	/**
 	 * Do a request
 	 *
-	 * @param   string      $strUrl
-	 * @param   null|array  $arrParams
-	 * @param   boolean     $boolRawRequest
+	 * @param   string      $strUrl           REST command URL
+	 * @param   null|array  $arrParams        Query parameters
+	 * @param   boolean     $boolRawResponse  Return raw response
 	 *
 	 * @return  array  Parsed response
 	 *
@@ -226,7 +226,7 @@ class JFmRestApi // extends FmRestApi
 			$signData = http_build_query($arrParams);
 		}
 
-		
+
 		// Get Signature
 		$strSign = sha1($this->strApiKey . '/' . static::prefix . $strUrl . $signData . $this->strApiSecret);
 
@@ -239,10 +239,22 @@ class JFmRestApi // extends FmRestApi
 			'X-Rest-ApiSign' => $strSign,
 		);
 
-		// Set Content type
+		// Set Content Type
 		if ($this->contentType)
 		{
-			$arrHeaders['Content-Type'] = $this->contentType;
+			/* Workaround nasty J2.5 bug:
+			 * use `Content-type` Transport will add `Content-type:application/x-www-form-urlencoded`
+			 * and request will result in auth denied. (ERROR 1000)
+			 */
+			if (version_compare(JVERSION, '3', '<'))
+			{
+				$arrHeaders['Content-type'] = $this->contentType;
+			}
+			// J3.0 and J2.5 JHttpTransportSocket
+			else
+			{
+				$arrHeaders['Content-Type'] = $this->contentType;
+			}
 		}
 
 		// Setup options
@@ -256,13 +268,14 @@ class JFmRestApi // extends FmRestApi
 		));
 
 		// Get HTTP Client
-		// Note: JHttpFactory is available since Platform 12.1
+		// Note: JHttpFactory is available since Platform 12.1 (J2.5.15)
 		if (class_exists('JHttpFactory'))
 		{
 			$jHttp = JHttpFactory::getHttp($options, 'Curl');
 		}
 		else
 		{
+			// Note: don't use JHttpTransportSocket
 			$jHttp = new JHttp($options, new JHttpTransportCurl(new JRegistry));
 		}
 
@@ -270,7 +283,7 @@ class JFmRestApi // extends FmRestApi
 		$httpMethod = ($strPostData) ? 'POST' : 'GET';
 
 		// Send request.
-		// Note: For Platform <= 11.4 headers must be included in request itself.
+		// Note: For <= J3.x headers must be included in request itself.
 		/* @type JHttpResponse Object */
 		/* @throws UnexpectedValueException */
 		$responseObject = ($strPostData) 
@@ -278,10 +291,17 @@ class JFmRestApi // extends FmRestApi
 			: $jHttp->get($requestUri, $arrHeaders);
 
 		// Assign response variables
-		$this->response = $responseObject->body;
+		$this->rawResponse = $responseObject->body;
 		$this->httpCode = $responseObject->code;
 
-		$this->response = json_decode($responseObject->body, true);
+		// Return raw response
+		if ($boolRawResponse)
+		{
+			return $this->rawResponse;
+		}
+
+
+		$this->response = json_decode($this->rawResponse, true);
 
 		// Throw response exceptions
 		if ($this->httpCode !== 200)

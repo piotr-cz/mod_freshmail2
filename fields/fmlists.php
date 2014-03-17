@@ -163,8 +163,8 @@ class JFormFieldFmLists extends JFormFieldList
 	 * 'important	=> 'important'	// label
 	 * 'inverse'	=> 'inverse',	// label
 	 * 'muted'		=> ' muted',	// p
-	 * 'error'		=> 'error',		// p
 	 */
+		'error'		=> 'error',		// p
 		'warning'	=> 'warning',
 		'info'		=> 'info',
 		'success'	=> 'success',
@@ -184,7 +184,15 @@ class JFormFieldFmLists extends JFormFieldList
 			? 'label label-' . static::$helperClassnames[$labelType]
 			: '';
 
-		$html = '<span class="' . $labelClass . '">' . htmlspecialchars($string) . '</span>';
+		$labelStyle = '';
+
+		// Fallback for Joomla 2.5 without BS
+		if (version_compare(JVERSION, '3', '<'))
+		{
+			$labelStyle = 'float: left; margin: 5px 5px 5px 0; color: red;';
+		}
+
+		$html = '<span class="' . $labelClass . '" style="' . $labelStyle . '">' . htmlspecialchars($string) . '</span>';
 
 		return $html;
 	}

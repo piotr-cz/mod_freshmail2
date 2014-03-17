@@ -15,6 +15,7 @@ Funkcje
   - Horyzontalny (Twitter Bootstrap 2.3)
   - Rzędowy (Twitter Bootstrap 2.3)
   - Beez (Joomla 2.5)
+  - Atomic (Joomla 2.5)
 
 
 Wymagania
