@@ -28,7 +28,7 @@ if ($isAjaxEnabled)
 			<?php echo $field->name ?>:<?php if ($field->required) : ?><span class="star">&nbsp;*</span><?php endif ?>
 		</label>
 		<div class="controls">
-			<input name="<?php echo $control ?>[custom_fields][<?php echo $field->tag ?>]" type="<?php echo $field->type ?>" class="input-medium" <?php if ($field->required) : ?>required="required" <?php endif ?> />
+			<input name="<?php echo $control ?>[custom_fields][<?php echo $field->tag ?>]" type="<?php echo $field->type ?>" class="input-block-level" <?php if ($field->required) : ?>required="required" <?php endif ?> />
 		</div>
 	</div>
 	<?php endforeach ?>
@@ -39,7 +39,7 @@ if ($isAjaxEnabled)
 			<?php echo JText::_('MOD_FRESHMAIL2_FIELD_EMAIL') ?>:<span class="star">&nbsp;*</span>
 		</label>
 		<div class="controls">
-			<input name="<?php echo $control ?>[email]" type="email" class="input-medium validate-email required" required="required" />
+			<input name="<?php echo $control ?>[email]" type="email" class="input-block-level validate-email required" required="required" />
 		</div>
 	</div>
 
