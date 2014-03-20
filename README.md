@@ -56,7 +56,7 @@ Configuration
 
 ![Vertical layout](./artwork/screenshots/screen-site-wetykalny.png "Vertical layout")
 
-** Horizontal layout**
+**Horizontal layout**
 
 ![Horizontal layout](./artwork/screenshots/screen-site-horyzontalny.png "Horizontal layout")
 
