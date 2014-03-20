@@ -41,6 +41,25 @@ Konfiguracja
 3. Wybierz Listę odbiorców _(Opcje > Lista odbiorców)_
 
 
+### Opcje podstawowe
+
+![Basic options](./artwork/screenshots/screen-admin-opcje-podstawowe.png "Basic options")
+
+### Opcje wzbogacone
+
+![Advanced options](./artwork/screenshots/screen-admin-opcje-wzbogacone.png "Advanced options")
+
+### Układy
+
+**Układ wertykalny**
+
+![Vertical layout](./artwork/screenshots/screen-site-wetykalny.png "Vertical layout")
+
+**Układ Horyzontalny**
+
+![Horizontal layout](./artwork/screenshots/screen-site-horyzontalny.png "Horizontal layout")
+
+
 Autorzy
 -------
 

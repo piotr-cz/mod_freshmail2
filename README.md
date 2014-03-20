@@ -42,6 +42,25 @@ Configuration
 3. Select Subscribers list _(Opcje > Lista odbiorców)_
 
 
+### Basic options
+
+![Basic options](./artwork/screenshots/screen-admin-opcje-podstawowe.png "Basic options")
+
+### Advanced options
+
+![Advanced options](./artwork/screenshots/screen-admin-opcje-wzbogacone.png "Advanced options")
+
+### Layouts
+
+**Vertical layout**
+
+![Vertical layout](./artwork/screenshots/screen-site-wetykalny.png "Vertical layout")
+
+** Horizontal layout**
+
+![Horizontal layout](./artwork/screenshots/screen-site-horyzontalny.png "Horizontal layout")
+
+
 Authors
 -------
 
