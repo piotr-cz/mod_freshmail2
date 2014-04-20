@@ -3,71 +3,70 @@ FreshMail Subscription Module
 
 ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 
-Module for newsletter subscription in [Freshmail](http://freshmail.pl/) system
-
-Functionality
--------------
-- _Custom fields_ management (Displaying, Required)
-- New subscription notifications by email
-- Option to use terms of service in form
-- Layouts
- - Horizontal (Twitter Bootstrap 2.3)
- - Inline (Bootstrap 2.3)
- - Beez (Joomla 2.5)
- - Atomic (Joomla 2.5)
-- Limit Module Impressions or Duration or hide after submission
-- Ajax submission (req. Joomla 3.1+)
+Moduł zapisu do newslettera w systemie [FreshMail](http://freshmail.pl/)
 
 
-Requirements
-------------
+Funkcje
+-------
+ - Zarządzanie __polami dodatkowymi__ (Wyświetlane, Wymagane)
+ - Powiadomienie o nowym subksrybencie na email
+ - Opcja odnośnika do regulaminu w formularzu
+ - Układy (layouty) do wyboru
+  - Horyzontalny (Twitter Bootstrap 2.3)
+  - Rzędowy (Twitter Bootstrap 2.3)
+  - Beez (Joomla 2.5)
+  - Atomic (Joomla 2.5)
+
+
+Wymagania
+---------
 
 - Joomla 2.5+
 - PHP 5.3
-- Account in Freshmail system
+- Konto w systemie FreshMail
 
 
-Installation
+Instalacja
+----------
+
+1. Pobierz najnowszą wersję z [Etykiet](https://github.com/piotr-cz/mod_freshmail2/tags) i zainstaluj za pomocą Instalatora Rozszerzeń Joomla _(Rozszerzenia > Instalacje > Instaluj z pakietu)_.
+2. Dodaj moduł _(Rozszerzenia > Moduły > Utwórz > Freshmail Subscription)_
+
+
+Konfiguracja
 ------------
 
-1. Download newest version from [Tags](https://github.com/piotr-cz/mod_freshmail2/tags) and install using Extension Manager _(Extensions > Extension Manager > Upload Package File)_.
-2. Add module _(Extensions > Module Manager > New > Freshmail Subscription)_
+1. Wstaw **Klucz API** konta Freshmail _(Opcje > Klucz API)_
+2. Wstaw **API Sekret** _(Opcje > API Sekret)_
+3. Wybierz Listę odbiorców _(Opcje > Lista odbiorców)_
 
 
-Configuration
--------------
-
-1. Enter Freshmail account **API Key** _(Opcje > Klucz API)_
-2. Enter **API Secret** _(Opcje > API Sekret)_
-3. Select Subscribers list _(Opcje > Lista odbiorców)_
-
-
-### Basic options
+### Opcje podstawowe
 
 ![Basic options](./artwork/screenshots/screen-admin-opcje-podstawowe.png "Basic options")
 
-### Advanced options
+### Opcje wzbogacone
 
 ![Advanced options](./artwork/screenshots/screen-admin-opcje-wzbogacone.png "Advanced options")
 
-### Layouts
+### Układy
 
-**Vertical layout**
+**Układ wertykalny**
 
 ![Vertical layout](./artwork/screenshots/screen-site-wetykalny.png "Vertical layout")
 
-**Horizontal layout**
+**Układ Horyzontalny**
 
 ![Horizontal layout](./artwork/screenshots/screen-site-horyzontalny.png "Horizontal layout")
 
 
-Authors
+Autorzy
 -------
 
 - [piotr_cz](https://github.com/piotr-cz)
 
 
-Issues/ Feature requirements
-----------------------------
+Błędy/ Nowe funkcje
+-------------------
 
-[Submit issue or feature requirement here](https://github.com/piotr-cz/mod_freshmail2/issues)
+[Zgłoś błąd lub propozycję nowej funkcji tutaj](https://github.com/piotr-cz/mod_freshmail2/issues)
