@@ -3,6 +3,8 @@ FreshMail Subscription Module
 
 ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 
+[English documentation](https://github.com/piotr_cz/mod_freshmail2/blob/master/README.en.md)
+
 Moduł zapisu do newslettera w systemie [FreshMail](http://freshmail.pl/)
 
 
