@@ -24,14 +24,27 @@ jQuery(function(){
 			data:  query + '&' + $form.serialize(),
 			url: $form.attr('action'),
 
+			// Response OK
 			success: function(response, responseStatus, jqXHR)
 			{
-				Joomla.renderMessages(response.messages || {'success': ['OK']});
+				var messages;
+
+				if (response.success)
+				{
+					messages = response.messages || {'success': ['OK']};
+				}
+				else
+				{
+					messages = {'error': [response.message || 'Uknown Error']};
+				}
+
+				Joomla.renderMessages(messages);
 			},
+			// Failure (ie. parseerror)
 			error: function(jqXHR, responseStatus, error)
 			{
 				Joomla.renderMessages({
-					'error': [ textStatus || 'Unknown Error']
+					'error': [ responseStatus || 'Unknown Error']
 				});
 			}
 		});
