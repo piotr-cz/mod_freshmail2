@@ -7,3 +7,6 @@
 
 # Backup files
 /*.bak
+
+# Notes
+NOTES.md

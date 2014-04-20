@@ -1,7 +1,5 @@
-FreshMail Subscription Module
+FreshMail Subscription Module ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 =============================
-
-![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 
 [English documentation](https://github.com/piotr_cz/mod_freshmail2/blob/master/README.en.md)
 
@@ -60,6 +58,47 @@ Konfiguracja
 **Układ Horyzontalny**
 
 ![Horizontal layout](./artwork/screenshots/screen-site-horyzontalny.png "Horizontal layout")
+
+
+Ukłądy wyboru listy
+-------------------
+
+Domyślny układ używa typu _checkox_. Aby zmienić na inny, zmień kod w układzie odpowiedzialny za wyświetlanie list:
+
+**Radio**
+
+```php
+<?php // Lists:Control ?>
+<?php foreach ($lists as $i => $list) : ?>
+	<label class="radio" title="<?php echo $list->description ?>">
+		<input name="<?php echo $control ?>[list][]" type="radio" <?php if ($list->selected) : ?> checked="checked"<?php endif ?> value="<?php echo $list->subscriberListHash ?>" />
+		<?php echo $list->name ?>
+	</label>
+<?php endforeach ?>
+```
+
+**Select**
+
+```php
+<?php // Lists:Control ?>
+<select name="<?php echo $control ?>[list]" style="width: 100%">
+<?php foreach ($lists as $i => $list) : ?>
+	<option value="<?php echo $list->subscriberListHash ?>" <?php if ($list->selected) : ?> selected="selected"<?php endif ?>><?php echo $list->name ?></option>
+<?php endforeach ?>
+</select>
+```
+
+**Checkbox**
+
+```php
+<?php // Lists:Control ?>
+<?php foreach ($lists as $i => $list) : ?>
+	<label class="radio" title="<?php echo $list->description ?>">
+		<input name="<?php echo $control ?>[list]" type="radio" <?php if ($list->selected) : ?> checked="checked"<?php endif ?> value="<?php echo $list->subscriberListHash ?>" />
+		<?php echo $list->name ?>
+	</label>
+<?php endforeach ?>
+```
 
 
 Autorzy

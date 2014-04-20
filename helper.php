@@ -427,8 +427,10 @@ class ModFreshmail2Helper
 		// Filter in only display fields
 		$allFields = (array_intersect_key($allFields, array_flip($displayFields)));
 
+		// Add each item to collection
 		foreach ($allFields as $tag => $field)
 		{
+			// Add extra item data
 			$field['required'] = (in_array($tag, $requiredFields));
 			$field['value'] = (isset($values[$tag])) ? $values[$tag] : null;
 
