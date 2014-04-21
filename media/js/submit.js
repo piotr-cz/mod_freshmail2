@@ -31,11 +31,11 @@ jQuery(function(){
 
 				if (response.success)
 				{
-					messages = response.messages || {'success': ['OK']};
+					messages = response.messages || {'success': [response.messages || 'OK']};
 				}
 				else
 				{
-					messages = {'error': [response.message || 'Uknown Error']};
+					messages = response.messages || {'error': [response.message || 'Uknown Error']};
 				}
 
 				Joomla.renderMessages(messages);
