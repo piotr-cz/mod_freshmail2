@@ -38,14 +38,26 @@ if (empty($inputData) && ModFreshmail2Helper::canSkip($control, $params))
 	return;
 }
 
+
+// Get processed lists set
+$selectedLists = (isset($inputData['list'])) ? $inputData['list'] : array();
+$lists = ModFreshmail2Helper::getProcessedLists($params, $selectedLists);
+
 // Process POSTed data (Valid, Added, Notified)
-if (!empty($inputData)
-	&& ModFreshmail2Helper::validate($inputData, $params)
-	&& ModFreshmail2Helper::addContact($inputData, $params)
-	&& ModFreshmail2Helper::sendEmail($inputData, $params)
-	&& ModFreshmail2Helper::postHook($control, $params))
+if (!empty($inputData) && ModFreshmail2Helper::validate($inputData, $params))
 {
-	// All is OK
+	// Loop trough lists and process selected ones
+	foreach ($lists as $list)
+	{
+		if ($list->selected)
+		{
+			ModFreshmail2Helper::addContact($inputData, $params, $list);
+		}
+	}
+
+	// Post hooks
+	ModFreshmail2Helper::sendEmail($inputData, $params)
+		&& ModFreshmail2Helper::postHook($control, $params);
 }
 
 
@@ -54,7 +66,8 @@ $tosLink			= ModFreshmail2Helper::getMenuLink($params->get('tos_menuitem'));
 $isAjaxEnabled		= (is_dir(JPATH_SITE . '/components/com_ajax') && $params->get('ajax_enabled', 0));
 
 // Get list of custom fields
-$customFields 		= ModFreshmail2Helper::getCustomFields($params);
+$customFields 		= ModFreshmail2Helper::getProcessedCustomFields($params);
+
 
 // Escape Modeuleclass Suffix
 $moduleclass_sfx 	= htmlspecialchars($params->get('moduleclass_sfx'));

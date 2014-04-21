@@ -22,13 +22,16 @@ if ($isAjaxEnabled)
 }
 ?>
 <form method="post" class="form-inline <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>" data-freshmail2="<?php echo $control ?>">
-	<?php // Terms of Service ?>
-	<?php if ($tosLink) : ?>
-	<label class="checkbox">
-		<input name="<?php echo $control ?>[tos]" type="checkbox" value="1" class="required" required="required" />
-		<small><?php echo JText::sprintf('MOD_FRESHMAIL2_TOSLINK_TEXT', JRoute::_($tosLink)) ?></small>
-	</label>
-	<br />
+	<?php // Lists ?>
+	<?php if (count($lists) > 1) : ?>
+		<div class="control-group">
+		<?php foreach ($lists as $i => $list) : ?>
+			<label class="checkbox inline" title="<?php echo $list->description ?>">
+				<input name="<?php echo $control ?>[list][]" type="checkbox" <?php if ($list->selected) : ?> checked="checked"<?php endif ?> value="<?php echo $list->subscriberListHash ?>" />
+				<?php echo $list->name ?>
+			</label>
+		<?php endforeach ?>
+		</div>
 	<?php endif ?>
 
 	<?php // Custom Fields ?>
@@ -43,6 +46,15 @@ if ($isAjaxEnabled)
 		<?php // Submit button ?>
 		<button class="btn btn-primary" type="submit"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 	</div>
+
+	<?php // Terms of Service ?>
+	<?php if ($tosLink) : ?>
+	<label class="checkbox">
+		<input name="<?php echo $control ?>[tos]" type="checkbox" value="1" class="required" required="required" />
+		<small><?php echo JText::sprintf('MOD_FRESHMAIL2_TOSLINK_TEXT', JRoute::_($tosLink)) ?></small>
+	</label>
+	<br />
+	<?php endif ?>
 
 	<?php echo JHtml::_('form.token') ?>
 </form>

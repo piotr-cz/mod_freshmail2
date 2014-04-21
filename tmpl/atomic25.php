@@ -14,6 +14,19 @@ JHtml::_('behavior.formvalidation');
 ?>
 <form method="post" class="input mod_freshmail<?php echo $moduleclass_sfx ?> form-validate" action="<?php echo JUri::getInstance() ?>" data-freshmail2="<?php echo $control ?>">
 	<fieldset class="userdata">
+		<?php // Lists ?>
+		<?php if (count($lists) > 1) : ?>
+			<?php // Lists: Control ?>
+			<?php foreach ($lists as $i => $list) : ?>
+			<p>
+				<label title="<?php echo $list->description ?>">
+					<input name="<?php echo $control ?>[list][]" type="checkbox" <?php if ($list->selected) : ?> checked="checked"<?php endif ?> value="<?php echo $list->subscriberListHash ?>" />
+				<?php echo $list->name ?>
+				</label>
+			</p>
+			<?php endforeach ?>
+		<?php endif ?>
+
 		<?php // Custom Fields ?>
 		<?php foreach ($customFields as $field) : ?>
 		<p>

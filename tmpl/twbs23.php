@@ -21,25 +21,36 @@ if ($isAjaxEnabled)
 }
 ?>
 <form method="post" class=" <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>" data-freshmail2="<?php echo $control ?>">
-	<?php // Custom Fields ?>
-	<?php foreach ($customFields as $field) : ?>
+	<?php // Lists ?>
+	<?php if (count($lists) > 1) : ?>
 	<div class="control-group">
+		<?php // Lists:Control ?>
+		<?php foreach ($lists as $i => $list) : ?>
+		<label class="checkbox" title="<?php echo $list->description ?>">
+			<input name="<?php echo $control ?>[list][]" type="checkbox" <?php if ($list->selected) : ?> checked="checked"<?php endif ?> value="<?php echo $list->subscriberListHash ?>" />
+			<?php echo $list->name ?>
+		</label>
+		<?php endforeach ?>
+	</div>
+	<?php endif ?>
+
+	<div class="control-group">
+		<?php // Custom Fields ?>
+		<?php foreach ($customFields as $field) : ?>
 		<label class="control-label">
 			<?php echo $field->name ?>:<?php if ($field->required) : ?><span class="star">&nbsp;*</span><?php endif ?>
 		</label>
 		<div class="controls">
-			<input name="<?php echo $control ?>[custom_fields][<?php echo $field->tag ?>]" type="<?php echo $field->type ?>" class="input-block-level" <?php if ($field->required) : ?>required="required" <?php endif ?> />
+			<input name="<?php echo $control ?>[custom_fields][<?php echo $field->tag ?>]" type="<?php echo $field->type ?>" class="input-medium" <?php if ($field->required) : ?>required="required" <?php endif ?> />
 		</div>
-	</div>
-	<?php endforeach ?>
+		<?php endforeach ?>
 
-	<?php // Email ?>
-	<div class="control-group">
+		<?php // Email ?>
 		<label class="control-label">
 			<?php echo JText::_('MOD_FRESHMAIL2_FIELD_EMAIL') ?>:<span class="star">&nbsp;*</span>
 		</label>
 		<div class="controls">
-			<input name="<?php echo $control ?>[email]" type="email" class="input-block-level validate-email required" required="required" />
+			<input name="<?php echo $control ?>[email]" type="email" class="input-medium validate-email required" required="required" />
 		</div>
 	</div>
 

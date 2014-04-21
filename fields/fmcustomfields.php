@@ -29,7 +29,7 @@ JLoader::register('ModFreshmail2Helper', JPATH_ROOT . '/modules/mod_freshmail2/h
  *			[hash]	=>
  *			[name]	=>
  *			[tag]	=>
- *			[type]	+>
+ *			[type]	=>
  *		)
  * </code>
  */
@@ -52,7 +52,7 @@ class JFormFieldFmCustomfields extends JFormFieldFmLists
 	 */
 	public function setForm(JForm $form)
 	{
-		$this->listHash		= $form->getValue('FMlistHash', 'params');
+		$this->listHash		= (array) $form->getValue('FMlistHash', 'params');
 
 		return parent::setForm($form);
 	}
@@ -62,14 +62,24 @@ class JFormFieldFmCustomfields extends JFormFieldFmLists
 	 */
 	public function getInput()
 	{
+		// Field setup
+		$hideMessages = (!empty($this->element['hide_messages']));
+
 		// Stop when there's no List hash
-		if (!$this->listHash)
+		if (empty($this->listHash))
 		{
-			return static::wrapLabel(JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_LIST_HASH'), 'info');
+			return (!$hideMessages) ? static::wrapLabel(JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_MISSING_LIST_HASH'), 'info') : '';
 		}
 
-		// Try out the api
-		return parent::getInput();
+		// Get HTML input
+		$html = parent::getInput();
+
+		if (count($this->listHash) > 1 && !$hideMessages)
+		{
+			$html .= static::wrapLabel(JText::_('MOD_FRESHMAIL2_FIELD_APISTATUS_LIST_MULTIPLE', 'info'));
+		}
+
+		return $html;
 	}
 
 	/**
@@ -77,41 +87,56 @@ class JFormFieldFmCustomfields extends JFormFieldFmLists
 	 */
 	protected function getOptions()
 	{
-		// Options
+		// Field setup
 		$showType = (!empty($this->element['display_type']));
 
 		$options = array();
+		$items = array();
 
-		// Get Items using API
-		$items = ModFreshmail2Helper::executeCommand(
-			$this->apiKey,
-			$this->apiSecret,
-			'subscribers_list/getFields',
-			array('hash' => $this->listHash),
-			'fields'
-		);
+		// Get Items for each list using API
+		foreach ((array) $this->listHash as $listHash)
+		{
+			$items = array_merge(
+				$items,
+				ModFreshmail2Helper::executeCommand(
+					$this->apiKey,
+					$this->apiSecret,
+					'subscribers_list/getFields',
+					array('hash' => $listHash),
+					'fields'
+				)
+			);
+		}
+
+		// Make tag unique
+		$tags = array();
 
 		// Create options
 		foreach ($items as $field)
 		{
-			// Create a new option object based values
-			$tmp = JHtml::_(
-				/* @type string $key */
-				'select.option',
-				/* @type string $value */
-				$field['tag'],
-				/* @type string $text */
-				$field['name'] . ($showType ? ' (' . $field['type'] . ')' : ''),
-				/* @type string $optKey */
-				'value',
-				/* @type string $optText */
-				'text',
-				/* @type boolean $disable */
-				false
-			);
+			if (!in_array($field['tag'], $tags))
+			{
+				$tags[] = $field['tag'];
 
-			// Add the option object to the result set.
-			$options[] = $tmp;
+				// Create a new option object based values
+				$tmp = JHtml::_(
+					/* @type string $key */
+					'select.option',
+					/* @type string $value */
+					$field['tag'],
+					/* @type string $text */
+					$field['name'] . ($showType ? ' (' . $field['type'] . ')' : ''),
+					/* @type string $optKey */
+					'value',
+					/* @type string $optText */
+					'text',
+					/* @type boolean $disable */
+					false
+				);
+
+				// Add the option object to the result set.
+				$options[] = $tmp;
+			}
 		}
 
 		reset($options);
