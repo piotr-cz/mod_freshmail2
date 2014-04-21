@@ -1,21 +1,24 @@
 FreshMail Subscription Module ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 =============================
 
-[English documentation](https://github.com/piotr_cz/mod_freshmail2/blob/master/README.en.md)
+[English documentation](https://github.com/piotr-cz/mod_freshmail2/blob/master/README.en.md)
 
 Moduł zapisu do newslettera w systemie [FreshMail](http://freshmail.pl/)
 
 
 Funkcje
 -------
- - Zarządzanie __polami dodatkowymi__ (Wyświetlane, Wymagane)
- - Powiadomienie o nowym subksrybencie na email
- - Opcja odnośnika do regulaminu w formularzu
- - Układy (layouty) do wyboru
-  - Horyzontalny (Twitter Bootstrap 2.3)
-  - Rzędowy (Twitter Bootstrap 2.3)
-  - Beez (Joomla 2.5)
-  - Atomic (Joomla 2.5)
+- Zarządzanie  polami dodatkowymi (Wyświetlane, Wymagane)
+- Powiadomienie o nowym subksrybencie na email
+- Opcja odnośnika do regulaminu w formularzu
+- Układy (layouty) do wyboru
+ - Horyzontalny (Twitter Bootstrap 2.3)
+ - Rzędowy (Twitter Bootstrap 2.3)
+ - Beez (Joomla 2.5)
+ - Atomic (Joomla 2.5)
+- Ograniczenie liczby wyświetleń lub ukrycie modułu po registracji
+- Ajax (wymagana Joomla 3.1+)
+- Wybór listy subkrypcyjnej
 
 
 Wymagania
@@ -60,7 +63,7 @@ Konfiguracja
 ![Horizontal layout](./artwork/screenshots/screen-site-horyzontalny.png "Horizontal layout")
 
 
-Ukłądy wyboru listy
+Układy wyboru listy
 -------------------
 
 Domyślny układ używa typu _checkox_. Aby zmienić na inny, zmień kod w układzie odpowiedzialny za wyświetlanie list:
