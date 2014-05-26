@@ -20,5 +20,9 @@
 /build.xml export-ignore
 /build.properties export-ignore
 
+# Composer installer
+/composer.json export-ignore
+/composer.lock export-ignore
+
 # Archives
 /*.zip

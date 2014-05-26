@@ -1,0 +1,7 @@
+{
+	"name": "piotr-cz/mod_freshmail2",
+	"type": "joomla-module",
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
