@@ -1,5 +1,5 @@
-FreshMail Subscription Module ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
-=============================
+FreshMail Subscription ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
+======================
 
 [Polska dokumentacja](https://github.com/piotr-cz/mod_freshmail2/blob/master/README.md)
 

@@ -38,7 +38,7 @@
 
 	<!-- Update Servers -->
 	<updateservers>
-		<server type="extension" priority="2" name="Freshmail subscription module Update Server">https://raw.github.com/piotr-cz/mod_freshmail2/master/update/mod_freshmail2.xml</server>
+		<server type="extension" priority="2" name="Freshmail Subscription Update Server">https://raw.github.com/piotr-cz/mod_freshmail2/master/update/mod_freshmail2.xml</server>
 	</updateservers>
 
 	<!-- Configuration -->
