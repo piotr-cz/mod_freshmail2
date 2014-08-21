@@ -32,7 +32,7 @@ Requirements
 Installation
 ------------
 
-1. Download newest version from [Tags](https://github.com/piotr-cz/mod_freshmail2/tags) and install using Extension Manager _(Extensions > Extension Manager > Upload Package File)_.
+1. Download [latest release](https://github.com/piotr-cz/mod_freshmail2/releases) and install using Extension Manager _(Extensions > Extension Manager > Upload Package File)_.
 2. Add module _(Extensions > Module Manager > New > Freshmail Subscription)_
 
 

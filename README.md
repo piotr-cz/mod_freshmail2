@@ -32,7 +32,7 @@ Wymagania
 Instalacja
 ----------
 
-1. Pobierz najnowszą wersję z [Etykiet](https://github.com/piotr-cz/mod_freshmail2/tags) i zainstaluj za pomocą Instalatora Rozszerzeń Joomla _(Rozszerzenia > Instalacje > Instaluj z pakietu)_.
+1. Pobierz [najnowsze wydanie](https://github.com/piotr-cz/mod_freshmail2/releases) i zainstaluj za pomocą Instalatora Rozszerzeń Joomla _(Rozszerzenia > Instalacje > Instaluj z pakietu)_.
 2. Dodaj moduł _(Rozszerzenia > Moduły > Utwórz > Freshmail Subscription)_
 
 
@@ -102,6 +102,18 @@ Domyślny układ używa typu _checkox_. Aby zmienić na inny, zmień kod w ukła
 	</label>
 <?php endforeach ?>
 ```
+
+
+Własne szablony
+---------------
+
+Moduł komunikuje z użytkownikiem za pomocą wiadomości z wykorzystaniem 
+[API Joomla](http://docs.joomla.org/Display_error_messages_and_notices), 
+w szablonie powinien więc znajdować się kod dla ich wyświetlania: 
+`<jdoc:include type="message" />` jak np. w domyślnym szablonie Atomic.
+
+Aby wersja AJAX działała we własnym szablonie, formularz powinien zawierać 
+atrybut `data-freshmail2="<?php echo $control ?>"`.
 
 
 Autorzy
