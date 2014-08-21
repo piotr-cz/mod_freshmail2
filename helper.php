@@ -378,22 +378,34 @@ class ModFreshmail2Helper
 		// Process POSTed data (Valid, Added, Notified)
 		if (!empty($inputData) && static::validate($inputData, $params))
 		{
+			// Success flag
+			$addContactsSuccess = false;
+
 			// Loop trough lists and process selected ones
 			foreach ($lists as $list)
 			{
 				if ($list->selected)
 				{
 					// Validate, add contact
-					static::addContact($inputData, $params, $list);
+					if (!static::addContact($inputData, $params, $list))
+					{
+						$addContactsSuccess = false;
+						break;
+					}
+
+					$addContactsSuccess = true;
 				}
 			}
 
-			// Post hooks
-			static::sendEmail($inputData, $params)
-				&& static::postHook($control, $params);
+			// Run post hooks
+			if ($addContactsSuccess)
+			{
+				static::sendEmail($inputData, $params)
+					&& static::postHook($control, $params);
 
-			// All is OK
-			return JText::_('MOD_FRESHMAIL2_SUCCESS');
+				// All is OK
+				return JText::_('MOD_FRESHMAIL2_SUCCESS');
+			}
 		}
 
 		return new UnexpectedValueException('Cannot subscribe');

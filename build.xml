@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<!--
+	Build in Phing flavour
+
+	@link http://www.phing.info/
+-->
+<project name="mod_freshmail2" basedir="." default="archive">
+
+	<!--
+		Include local project properties.
+	-->
+	<property name="source" value="." />
+	<property file="build.properties" />
+
+
+	<!--
+		Run PHP CodeSniffer
+	-->
+	<target name="phpcs" description="Generate report using PHP_CodeSniffer">
+		<exec executable="phpcs" passthru="true" logoutput="true">
+			<arg path="${source}" />
+
+			<arg value="--standard=Joomla" />
+			<arg value="--extensions=php" />
+			<arg value="-p" />
+
+			<arg value="--report=full" />
+			<arg value="--ignore=tmpl,libraries/" />
+		</exec>
+	</target>
+
+
+	<!--
+		Tag
+		@link http://git-scm.com/book/en/Git-Basics-Tagging
+	-->
+	<target name="tag" description="Tag an extension">
+		<exec executable="git" logoutput="true">
+			<arg value="tag" />
+			<arg value="v${newVersion}" />
+		</exec>
+	</target>
+
+
+	<!--
+		Lint
+	-->
+	<target name="lint" description="Perform syntax check of sourcecode files">
+		<apply executable="php" failonerror="true">
+			<arg value="-1" />
+
+			<fileset dir=".">
+				<include name="**/*.php" />
+			</fileset>
+		</apply>
+	</target>
+
+
+	<!--
+		Archive
+	-->
+	<target name="archive" description="Archive" depends="">
+		<property name="destname" value="${element}-${version}" />
+
+		<delete file="${destname}.zip" quiet="true" />
+
+		<zip destfile="${destname}.zip">
+			<fileset dir="${source}" defaultexcludes="true">
+				<!-- Include all -->
+				<include name="**/**" />
+
+				<!-- Git files -->
+				<exclude name="**/.git" />
+
+				<!-- Artwork -->
+				<exclude name="artwork/**" />
+
+				<!-- Update server -->
+				<exclude name="update/**" />
+
+				<!-- Phing build -->
+				<exclude name="build.xml" />
+				<exclude name="build.properties" />
+
+				<!-- Archives -->
+				<exclude name="**.zip" />
+			</fileset>
+		</zip>
+	</target>
+
+</project>

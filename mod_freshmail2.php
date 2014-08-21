@@ -46,18 +46,31 @@ $lists = ModFreshmail2Helper::getProcessedLists($params, $selectedLists);
 // Process POSTed data (Valid, Added, Notified)
 if (!empty($inputData) && ModFreshmail2Helper::validate($inputData, $params))
 {
+	// Success flag
+	$addContactsSuccess = false;
+
 	// Loop trough lists and process selected ones
 	foreach ($lists as $list)
 	{
 		if ($list->selected)
 		{
-			ModFreshmail2Helper::addContact($inputData, $params, $list);
+			// Validate, add contact
+			if (!ModFreshmail2Helper::addContact($inputData, $params, $list))
+			{
+				$addContactsSuccess = false;
+				break;
+			}
+
+			$addContactsSuccess = true;
 		}
 	}
 
-	// Post hooks
-	ModFreshmail2Helper::sendEmail($inputData, $params)
-		&& ModFreshmail2Helper::postHook($control, $params);
+	// Run post hooks
+	if ($addContactsSuccess)
+	{
+		ModFreshmail2Helper::sendEmail($inputData, $params)
+			&& ModFreshmail2Helper::postHook($control, $params);
+	}
 }
 
 
