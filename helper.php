@@ -510,22 +510,26 @@ class ModFreshmail2Helper
 			$client->setTimeout($params->get('FMapiTimeout'));
 		}
 
-		// Build payload
+		/* Build payload
+		 * Note: When `confirm` value is set to null, Double opt-in lists 
+		 * don't send auto confirmations.
+		 * Inconsistency in API docs: http://freshmail.pl/developer-api/subskrybenci-zarzadzanie-subskrybentami/
+		 */
 		$payload = array(
 			'email'		=> $data['email'],
 			'list'		=> $list->subscriberListHash,
 			'custom_fields'	=> array(),
-			'state'		=> null,
-			'confirm'	=> null,
+		//	'state'		=> null,
+		//	'confirm'	=> null,
 		);
 
-		// Kody Statusow Subskrybentow
+		// Set Kody Statusow Subskrybentow
 		if ($params->get('FMdefaultState'))
 		{
 			$payload['state'] = $params->get('FMdefaultState');
 		}
 
-		// Confirmation email
+		// Set Confirmation email
 		if ($params->get('FMdefaultConfirm'))
 		{
 			$payload['confirm'] = $params->get('FMdefaultConfirm');
