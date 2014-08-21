@@ -12,14 +12,6 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.tooltip');
-
-// Load Ajax scripts
-if ($isAjaxEnabled)
-{
-	JHtml::_('jquery.framework');
-	JHtml::_('script', 'system/core.js', false, true);
- 	JHtml::_('script', 'mod_freshmail2/submit.js', false, true);
-}
 ?>
 <form method="post" class="form-inline <?php echo $moduleclass_sfx ?>" action="<?php echo JUri::getInstance() ?>" data-freshmail2="<?php echo $control ?>">
 	<?php // Lists ?>

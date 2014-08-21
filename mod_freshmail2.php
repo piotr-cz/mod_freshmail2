@@ -76,7 +76,16 @@ if (!empty($inputData) && ModFreshmail2Helper::validate($inputData, $params))
 
 // Get TOS link
 $tosLink			= ModFreshmail2Helper::getMenuLink($params->get('tos_menuitem'));
+
+// Determine Ajax support
 $isAjaxEnabled		= (is_dir(JPATH_SITE . '/components/com_ajax') && $params->get('ajax_enabled', 0));
+
+if ($isAjaxEnabled)
+{
+	JHtml::_('jquery.framework');
+	JHtml::_('script', 'system/core.js', false, true);
+ 	JHtml::_('script', 'mod_freshmail2/submit.js', false, true);
+}
 
 // Get list of custom fields
 $customFields 		= ModFreshmail2Helper::getProcessedCustomFields($params);
