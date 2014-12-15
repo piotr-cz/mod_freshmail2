@@ -19,7 +19,6 @@
 		<folder>libraries</folder>
 		<folder>tmpl</folder>
 		<filename>helper.php</filename>
-		<filename>index.html</filename>
 		<filename>mod_freshmail2.xml</filename>
 	</files>
 
@@ -33,7 +32,6 @@
 	<!-- Media -->
 	<media folder="media" destination="mod_freshmail2">
 		<folder>js</folder>
-		<filename>index.html</filename>
 	</media>
 
 	<!-- Update Servers -->
