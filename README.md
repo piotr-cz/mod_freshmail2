@@ -39,9 +39,12 @@ Instalacja
 Konfiguracja
 ------------
 
-1. Wstaw **Klucz API** konta Freshmail _(Opcje > Klucz API)_
-2. Wstaw **API Sekret** _(Opcje > API Sekret)_
+1. Wstaw **Klucz API (32 znaków)** konta Freshmail _(Opcje > Klucz API)_
+2. Wstaw **API Sekret (40 znaków)** _(Opcje > API Sekret)_
 3. Wybierz Listę odbiorców _(Opcje > Lista odbiorców)_
+
+
+W panelu freshmail.pl Klucz API oraz API Sekret znajddziesz w _liście odbiorców > Parametry > Klucze API_ lub w _Ustawienia > Wtyczki i API > Twoje klucze API_.
 
 
 ### Opcje podstawowe

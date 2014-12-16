@@ -39,9 +39,11 @@ Installation
 Configuration
 -------------
 
-1. Enter Freshmail account **API Key** _(Opcje > Klucz API)_
-2. Enter **API Secret** _(Opcje > API Sekret)_
-3. Select Subscribers list _(Opcje > Lista odbiorców)_
+1. Enter Freshmail account **API Key (32 characters)** _(Options > API Key)_
+2. Enter **API Secret (40 characters)** _(Options > API Secret)_
+3. Select Subscribers list _(Options > Subscribers list)_
+
+In freshmail.pl panel you may find API Key and API Secret in _Contact list > Parameters > API keys_ or in _Settings > Plugins and API > Your API keys_.
 
 
 ### Basic options
