@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	See http://extensions.joomla.org/component/content/article?id=10
+-->
+<jedupdate version="1">
+	<core_body><![CDATA[
+Module for newsletter subscription in Freshmail system
+
+Functionality:
+- Custom fields management (Displaying, Required)
+- New subscription notifications by email
+- Option to use terms of service in form
+- Layouts
+- Limit module Impressions or Duration or hide after registration
+- Ajax (req. Joomla 3.1+)
+- Subscription list selection
+]]></core_body>
+	
+	<!-- valid links only or leave blank -->
+	<homepage_link>https://github.com/piotr-cz/mod_freshmail2</homepage_link>
+	<download_link>https://github.com/piotr-cz/mod_freshmail2/releases</download_link>
+	<demo_link />
+	<documentation_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/README.md</documentation_link>
+	<support_link>https://github.com/piotr-cz/mod_freshmail2/issues</support_link>
+	<license_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/LICENSE.txt</license_link>
+	
+	<version>1.1.2</version>
+
+	<compatibility>
+		<version>25</version>
+		<version>30</version>
+	</compatibility>
+</jedupdate>
