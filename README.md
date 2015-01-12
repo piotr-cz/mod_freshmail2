@@ -111,11 +111,11 @@ Własne szablony
 ---------------
 
 Moduł komunikuje z użytkownikiem za pomocą wiadomości z wykorzystaniem 
-[API Joomla](http://docs.joomla.org/Display_error_messages_and_notices), 
-w szablonie powinien więc znajdować się kod dla ich wyświetlania: 
+[API Joomla](http://docs.joomla.org/Display_error_messages_and_notices).
+W szablonie powinien więc znajdować się kod dla ich wyświetlania: 
 `<jdoc:include type="message" />` jak np. w domyślnym szablonie Atomic.
 
-Aby wersja AJAX działała we własnym szablonie, formularz powinien zawierać 
+Aby funkcjonalność AJAX działała we własnym szablonie, formularz powinien zawierać 
 atrybut `data-freshmail2="<?php echo $control ?>"`.
 
 

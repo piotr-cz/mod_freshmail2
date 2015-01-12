@@ -3,7 +3,7 @@ FreshMail Subscription ![JED icon](./artwork/JED_icon.png "mod_freshmail2")
 
 [Polska dokumentacja](https://github.com/piotr-cz/mod_freshmail2/blob/master/README.md)
 
-Module for newsletter subscription in [Freshmail](http://freshmail.pl/) system
+Module for newsletter subscription in [Freshmail](http://freshmail.com/) system
 
 
 Functionality
@@ -43,7 +43,7 @@ Configuration
 2. Enter **API Secret (40 characters)** _(Options > API Secret)_
 3. Select Subscribers list _(Options > Subscribers list)_
 
-In freshmail.pl panel you may find API Key and API Secret in _Contact list > Parameters > API keys_ or in _Settings > Plugins and API > Your API keys_.
+In freshmail.com panel you may find API Key and API Secret in _Contact list > Parameters > API keys_ or in _Settings > Plugins and API > Your API keys_.
 
 
 ### Basic options
@@ -104,6 +104,17 @@ Default layout uses _checkbox_ type. To change to other, adjust code in layout t
 	</label>
 <?php endforeach ?>
 ```
+
+Custom templates
+----------------
+
+Module communicates with user trough messages that use
+[API Joomla](http://docs.joomla.org/Display_error_messages_and_notices).
+In template there should be a code responsible for showing these:
+`<jdoc:include type="message" />` as in default template Atomic.
+
+For AJAX functionality to work in custom template, form should consist
+an attribute `data-freshmail2="<?php echo $control ?>"`.
 
 
 Authors
