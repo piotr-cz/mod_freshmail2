@@ -3,7 +3,7 @@
 	<!-- 1.1.2 -->
 	<update>
 		<name>Freshmail subscription</name>
-		<description>Moduł zapisu do newslettera w systemie FreshMail</description>
+		<description>Sign Up Form Module for FreshMail / Moduł zapisu do newslettera w systemie FreshMail</description>
 		<element>mod_freshmail2</element>
 		<type>module</type>
 		<folder />
@@ -26,6 +26,7 @@
 		<maintainerurl>http://www.piotr.cz</maintainerurl>
 
 		<targetplatform name="joomla" version="2.5|3.*" />
+		<php_minimum>5.3.10</php_minimum>
 	</update>
 
 	<!-- 1.1.1 -->

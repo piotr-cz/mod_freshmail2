@@ -3,7 +3,8 @@
 	See http://extensions.joomla.org/component/content/article?id=10
 -->
 <jedupdate version="1">
-	<core_body><![CDATA[
+	<core_body>
+	<![CDATA[
 Module for newsletter subscription in Freshmail system
 
 Functionality:
@@ -14,13 +15,14 @@ Functionality:
 - Limit module Impressions or Duration or hide after registration
 - Ajax (req. Joomla 3.1+)
 - Subscription list selection
-]]></core_body>
+	]]>
+	</core_body>
 
 	<!-- valid links only or leave blank -->
 	<homepage_link>https://github.com/piotr-cz/mod_freshmail2</homepage_link>
 	<download_link>https://github.com/piotr-cz/mod_freshmail2/archive/v1.1.2.zip</download_link>
 	<demo_link />
-	<documentation_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/README.md</documentation_link>
+	<documentation_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/README.en.md</documentation_link>
 	<support_link>https://github.com/piotr-cz/mod_freshmail2/issues</support_link>
 	<license_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/LICENSE.txt</license_link>
 
