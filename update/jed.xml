@@ -5,9 +5,10 @@
 <jedupdate version="1">
 	<core_body>
 	<![CDATA[
-Module for newsletter subscription in Freshmail system
+Module for newsletter subscription in FreshMail system
 
-Functionality:
+## Functionality
+
 - Custom fields management (Displaying, Required)
 - New subscription notifications by email
 - Option to use terms of service in form
@@ -15,6 +16,9 @@ Functionality:
 - Limit module Impressions or Duration or hide after registration
 - Ajax (req. Joomla 3.1+)
 - Subscription list selection
+
+___
+For more details, see [Extension page](http://freshmail.com/plugin/joomla-newsletter/)
 	]]>
 	</core_body>
 

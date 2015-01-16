@@ -129,3 +129,5 @@ Błędy/ Nowe funkcje
 -------------------
 
 [Zgłoś błąd lub propozycję nowej funkcji tutaj](https://github.com/piotr-cz/mod_freshmail2/issues)
+
+[Najnowsza wersja developerska](https://github.com/piotr-cz/mod_freshmail2/archive/master.zip)

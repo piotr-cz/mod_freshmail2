@@ -127,3 +127,5 @@ Issues/ Feature requirements
 ----------------------------
 
 [Submit issue or feature requirement here](https://github.com/piotr-cz/mod_freshmail2/issues)
+
+[Latest development version](https://github.com/piotr-cz/mod_freshmail2/archive/master.zip)
