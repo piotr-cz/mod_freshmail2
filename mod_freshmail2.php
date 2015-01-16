@@ -40,7 +40,7 @@ if (empty($inputData) && ModFreshmail2Helper::canSkip($control, $params))
 
 
 // Get processed lists set
-$selectedLists = (isset($inputData['list'])) ? $inputData['list'] : array();
+$selectedLists = (isset($inputData['list'])) ? (array) $inputData['list'] : array();
 $lists = ModFreshmail2Helper::getProcessedLists($params, $selectedLists);
 
 // Process POSTed data (Valid, Added, Notified)

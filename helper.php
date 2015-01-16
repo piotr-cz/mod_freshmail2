@@ -269,7 +269,7 @@ class ModFreshmail2Helper
 	 *
 	 * @since   1.1
 	 */
-	public static function getProcessedLists(JRegistry $params, $values = array())
+	public static function getProcessedLists(JRegistry $params, array $values = array())
 	{
 		$items = array();
 
@@ -372,7 +372,7 @@ class ModFreshmail2Helper
 		$inputData = $input->post->get($control, null, 'array');
 
 		// Get processed lists set
-		$selectedLists = (isset($inputData['list'])) ? $inputData['list'] : array();
+		$selectedLists = (isset($inputData['list'])) ? (array) $inputData['list'] : array();
 		$lists = static::getProcessedLists($params, $selectedLists);
 
 		// Process POSTed data (Valid, Added, Notified)
@@ -655,7 +655,7 @@ class ModFreshmail2Helper
 		}
 		elseif (isset($data['lists']))
 		{
-			$lists = static::getProcessedLists($params, $data['lists']);
+			$lists = static::getProcessedLists($params, (array) $data['lists']);
 			$body .= "\r\n" . JText::_('MOD_FRESHMAIL2_NOTIFICATION_LISTS');
 
 			foreach ($lists as $list)
