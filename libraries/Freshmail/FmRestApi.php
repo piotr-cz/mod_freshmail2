@@ -36,7 +36,7 @@ class JFmRestApi // extends FmRestApi
 	 *
 	 * @var    string
 	 */
-	const host = 'https://app.freshmail.pl/';
+	const host = 'https://app.freshmail.com/';
 
 	/**
 	 * API prefix
@@ -319,7 +319,7 @@ class JFmRestApi // extends FmRestApi
 
 		if (!is_array($this->response))
 		{
-			throw new Exception('Invalid json response');
+			throw new Exception('Connection error');
 		}
 
 		return $this->response;
