@@ -24,8 +24,8 @@ JLoader::import('joomla.http.transport.curl');
  * @note  Package is fully backward compatible with FmRestApi
  * @note  code changes to origin:
  *        - doRquest uses JHttp (resolved problems with SSL certificate)
- *        - setTimeout method
- *        - had to duplicate methods to gain access to private properties
+ *        - timeout variable, getTimeout, setTimeout methods
+ *        - had to duplicate methods to get access to private properties from extended class
  *
  * @see  https://github.com/FreshMail/REST-API
  */
@@ -101,7 +101,7 @@ class JFmRestApi // extends FmRestApi
 	 */
 	private $timeout;
 
-		/**
+	/**
 	 * Get parsed response
 	 *
 	 * @return  array

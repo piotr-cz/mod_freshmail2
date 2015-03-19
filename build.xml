@@ -59,7 +59,7 @@
 
 	<!--
 		Archive
-		See .gitattributes: --export-ignore
+		@see .gitattributes: export-ignore
 	-->
 	<target name="archive" description="Archive" depends="">
 		<property name="destname" value="${element}-${version}" />

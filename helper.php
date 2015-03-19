@@ -178,8 +178,6 @@ class ModFreshmail2Helper
 		return $response;
 	}
 
-	//// Prepare data
-
 	/**
 	 * Get and prepare custom fields
 	 * [frontend]
@@ -255,8 +253,6 @@ class ModFreshmail2Helper
 
 		return $items;
 	}
-
-	//// Prepare
 
 	/**
 	 * Get and prepare subscribers list
@@ -350,6 +346,7 @@ class ModFreshmail2Helper
 
 		// Get module id
 		$control = $input->get('control', '');
+
 		if (!$control)
 		{
 			return new LogicException('No module id');
@@ -411,13 +408,13 @@ class ModFreshmail2Helper
 		return new UnexpectedValueException('Cannot subscribe');
 	}
 
-	//// Actions
+	// Actions
 
 	/**
 	 * Validate user input
 	 *
-	 * @param   array      $data      Data to validate
-	 * @param   JRegistry  $params    Module parameters
+	 * @param   array      $data    Data to validate
+	 * @param   JRegistry  $params  Module parameters
 	 *
 	 * @return  boolean  True on success false on failure
 	 */
@@ -511,16 +508,16 @@ class ModFreshmail2Helper
 		}
 
 		/* Build payload
-		 * Note: When `confirm` value is set to null, Double opt-in lists 
+		 * Note: When `confirm` value is set to null, Double opt-in lists
 		 * don't send auto confirmations.
 		 * Inconsistency in API docs: http://freshmail.pl/developer-api/subskrybenci-zarzadzanie-subskrybentami/
 		 */
 		$payload = array(
-			'email'		=> $data['email'],
-			'list'		=> $list->subscriberListHash,
+			'email'			=> $data['email'],
+			'list'			=> $list->subscriberListHash,
 			'custom_fields'	=> array(),
-		//	'state'		=> null,
-		//	'confirm'	=> null,
+		//	'state'			=> null,
+		//	'confirm'		=> null,
 		);
 
 		// Set Kody Statusow Subskrybentow
