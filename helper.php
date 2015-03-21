@@ -51,10 +51,11 @@ class ModFreshmail2Helper
 		$dataString = $inputCookie->get('freshmail2_' . $control, null, 'string');
 
 		// Decode data
-		$data = ($dataString) ? json_decode($dataString) : (object) array('time' => 0, 'count' => 0, 'state' => 0);
+		$data = ($dataString) ? json_decode($dataString) : static::getDefaultCookieObject();
 
-		// Limit multi-registrations
-		if ($limit_registered && $data->registered)
+		// Limit multiple registrations
+		// TODO: Remove check for state after 2015-05-01 (change in cookies)
+		if ($limit_registered && (!empty($data->subscribed) || !empty($data->state)))
 		{
 			return true;
 		}
@@ -228,6 +229,7 @@ class ModFreshmail2Helper
 		}
 
 		// Pivot by unique tag
+		// Note: these are for display puproses only, there may be fields with same tag, accross multiple lists so latter will overwrite first.
 		foreach ($allFields as $field)
 		{
 			if (!in_array($field['tag'], $tags))
@@ -535,6 +537,7 @@ class ModFreshmail2Helper
 		}
 
 		// Add custom fields
+		// In payload, just custom field tag is required (not hash)
 		if (isset($data['custom_fields']))
 		{
 			foreach ($params->get('FMdisplayFields', array()) as $customField)
@@ -690,12 +693,29 @@ class ModFreshmail2Helper
 			$inputCookie = JFactory::getApplication()->input->cookie;
 			$dataString = $inputCookie->get('freshmail2_' . $control, null, 'string');
 
-			$data = ($dataString) ? json_decode($dataString) : (object) array('time' => 0, 'count' => 0, 'state' => 0);
-			$data->state = true;
+			$data = ($dataString) ? json_decode($dataString) : static::getDefaultCookieObject();
+			$data->subscribed = true;
 
 			$inputCookie->set('freshmail2_' . $control, json_encode($data), time() + 30 * 24 * 3600);
 		}
 
 		return true;
+	}
+
+	/**
+	 * Get default cookie object
+	 *
+	 * @return stdClass
+	 */
+	public static function getDefaultCookieObject()
+	{
+		return (object) array(
+			/* @type integer Timestamp of last access */
+			'time' => 0,
+			/* @type integer Module implressions count */
+			'count' => 0,
+			/* type boolean Used this module to subscribe */
+			'subscribed' => false,
+		);
 	}
 }
