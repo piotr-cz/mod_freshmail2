@@ -7,7 +7,6 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// Beez2
 defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
@@ -36,7 +35,7 @@ JHtml::_('behavior.formvalidation');
 			</label>
 		</dt>
 		<dd>
-			<input name="<?php echo $control ?>[custom_fields][<?php echo $field->tag ?>]" type="<?php echo $field->type ?>" <?php if (!$field->required) : ?> class="inputbox"<?php else : ?> class="inputbox required" required="required"<?php endif ?> size="18" />
+			<input name="<?php echo $control ?>[custom_fields][<?php echo $field->tag ?>]" type="<?php echo $field->type ?>" <?php if (!empty($stateValues['custom_fields'][$field->tag])) : ?>value="<?php echo htmlspecialchars($stateValues['custom_fields'][$field->tag]) ?>"<?php endif ?> <?php if (!$field->required) : ?> class="inputbox"<?php else : ?> class="inputbox required" required="required"<?php endif ?> size="18" />
 		</dd>
 		<?php endforeach ?>
 
@@ -47,7 +46,7 @@ JHtml::_('behavior.formvalidation');
 			</label>
 		</dt>
 		<dd>
-			<input name="<?php echo $control ?>[email]" type="email" class="inputbox validate-email required" required="required" size="18" />
+			<input name="<?php echo $control ?>[email]" type="email" <?php if (!empty($stateValues['email'])) : ?>value="<?php echo htmlspecialchars($stateValues['email']) ?>"<?php endif ?> class="inputbox validate-email required" required="required" size="18" />
 		</dd>
 	</dl>
 
@@ -56,7 +55,7 @@ JHtml::_('behavior.formvalidation');
 	<?php if ($tosLink) : ?>
 	<p class="clr">
 		<label>
-			<input name="<?php echo $control ?>[tos]" type="checkbox" value="1" class="inputbox required" required="required" />
+			<input name="<?php echo $control ?>[tos]" type="checkbox" value="1" <?php if (!empty($stateValues['tos'])) : ?>checked="checked"<?php endif ?> class="inputbox required" required="required" />
 			<small><?php echo JText::sprintf('MOD_FRESHMAIL2_TOSLINK_TEXT', JRoute::_($tosLink)) ?></small>
 		</label>
 	</p>

@@ -32,6 +32,13 @@ $control			= 'mod_' . $module->id;
 // Get posted data
 $inputData			= $input->post->get($control, null, 'array');
 
+// Default form values
+$stateValues		= array(
+	'email'	=> '',
+	'tos' => false,
+	'custom_fields' => array(),
+);
+
 // Limits (not on POST)
 if (empty($inputData) && ModFreshmail2Helper::canSkip($control, $params))
 {
@@ -70,6 +77,9 @@ if (!empty($inputData) && ModFreshmail2Helper::validate($inputData, $params))
 	{
 		ModFreshmail2Helper::sendEmail($inputData, $params)
 			&& ModFreshmail2Helper::postHook($control, $params);
+	// Hand over form data to layout so user may try again
+	} else {
+		$stateValues = $inputData;
 	}
 }
 

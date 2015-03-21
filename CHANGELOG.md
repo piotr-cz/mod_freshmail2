@@ -3,7 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [v1.1.3] - 2015-03-21
+### Added
+- Remember form data when subscription fails
+
 ### Fixed
+- Fixing php notice when using limits
 - Using same cache folder for both Site and Admin
 - String to array conversions
 
