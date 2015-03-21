@@ -86,7 +86,7 @@ class ModFreshmail2Helper
 			}
 		}
 
-		// Store data
+		// Store cookie data for with max-age of 1 month
 		$inputCookie->set('freshmail2_' . $control, json_encode($data), time() + 30 * 24 * 3600);
 
 		return false;
@@ -349,7 +349,7 @@ class ModFreshmail2Helper
 			|| $lang->load('mod_freshmail2', __DIR__);
 
 		// Get module id
-		$control = $input->get('control', '');
+		$control = $input->get('control');
 
 		if (!$control)
 		{
@@ -411,8 +411,6 @@ class ModFreshmail2Helper
 
 		return new UnexpectedValueException('Cannot subscribe');
 	}
-
-	// Actions
 
 	/**
 	 * Validate user input
