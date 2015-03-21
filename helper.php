@@ -116,10 +116,10 @@ class ModFreshmail2Helper
 	 *
 	 * @param   string   $apiKey          FreshMail API Key
 	 * @param   string   $apiSecret       FreshMail API Secret
-	 * @param   string   $command         Command
+	 * @param   string   $command         Command name
 	 * @param   array    $params          Command parameters
 	 * @param   string   $key             Result set key
-	 * @param   boolean  $cacheCheckTime  Check cache time
+	 * @param   boolean  $cacheCheckTime  Check cache time (Site opraters on data updated by Admin)
 	 *
 	 * @return  array  Result set
 	 *
@@ -131,13 +131,15 @@ class ModFreshmail2Helper
 		// Initialize cache
 		$cache = JCache::getInstance(
 			/* @type string $type */
-			null,
+			'output',
 			/* @type array $options */
 			array(
 				'language'		=> 'en-GB',
 				'defaultgroup' 	=> 'mod_freshmail2',
 				'checkTime'		=> $cacheCheckTime,
 				'caching'		=> true,
+				// Use same admin cache folder for both admin and site
+				'cachebase'		=> JPATH_ADMINISTRATOR . '/cache',
 			)
 		);
 
@@ -150,7 +152,7 @@ class ModFreshmail2Helper
 		// No cached items
 		if ($response === false)
 		{
-			$client = new JFmRestApi;
+			$client = new JFmRestApi();
 			$client->setApiKey($apiKey);
 			$client->setApiSecret($apiSecret);
 
@@ -362,7 +364,7 @@ class ModFreshmail2Helper
 		}
 
 		// Decode mnodule params
-		$params = new JRegistry;
+		$params = new JRegistry();
 		$params->loadString($table->params);
 
 		// Read POSTed data
@@ -496,7 +498,7 @@ class ModFreshmail2Helper
 		$isSingle = (count($params->get('FMlistHash')) == 1);
 
 		// Instanitate Client
-		$client = new JFmRestApi;
+		$client = new JFmRestApi();
 
 		$client->setApiKey($params->get('FMapiKey'));
 		$client->setApiSecret($params->get('FMapiSecret'));
