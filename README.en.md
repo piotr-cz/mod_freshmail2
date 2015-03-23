@@ -12,8 +12,8 @@ Functionality
 - New subscription notifications by email
 - Option to use terms of service in form
 - Layouts
- - Horizontal (Twitter Bootstrap 2.3)
- - Inline (Bootstrap 2.3)
+ - Horizontal (Bootstrap 2 / 3)
+ - Inline (Bootstrap 2 / 3)
  - Beez (Joomla 2.5)
  - Atomic (Joomla 2.5)
 - Limit module Impressions or Duration or hide after registration

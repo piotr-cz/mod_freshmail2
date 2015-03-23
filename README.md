@@ -12,8 +12,8 @@ Funkcje
 - Powiadomienie o nowym subksrybencie na email
 - Opcja odnośnika do regulaminu w formularzu
 - Układy (layouty) do wyboru
- - Horyzontalny (Twitter Bootstrap 2.3)
- - Rzędowy (Twitter Bootstrap 2.3)
+ - Horyzontalny (Bootstrap 2 / 3)
+ - Rzędowy (Bootstrap 2 / 3)
  - Beez (Joomla 2.5)
  - Atomic (Joomla 2.5)
 - Ograniczenie liczby wyświetleń lub ukrycie modułu po registracji
