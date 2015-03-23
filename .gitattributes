@@ -1,7 +1,7 @@
 ##
 # Git Attributes
 #
-# @link  http://git-scm.com/book/ch7-2.html
+# @link  http://git-scm.com/docs/gitattributes
 ##
 
 # Ignore assets on archive
@@ -9,6 +9,9 @@
 # Default Excludes
 .gitattributes export-ignore
 .gitignore export-ignore
+
+# Metadata
+/CHANGELOG.* export-ignore
 
 # Artwork
 /artwork/ export-ignore
