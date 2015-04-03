@@ -11,22 +11,23 @@
 		Include local project properties.
 	-->
 	<property name="source" value="." />
+	<property name="build.dir" value="./build" />
 	<property file="build.properties" />
 
 
 	<!--
 		Run PHP CodeSniffer
 	-->
-	<target name="phpcs" description="Generate report using PHP_CodeSniffer">
+	<target name="phpcs" description="Generate codestyle report using PHP_CodeSniffer">
 		<exec executable="phpcs" passthru="true" logoutput="true">
 			<arg path="${source}" />
 
-			<arg value="--standard=Joomla" />
+			<arg value="--standard=${build.dir}/phpcs/Joomla" />
 			<arg value="--extensions=php" />
 			<arg value="-p" />
 
 			<arg value="--report=full" />
-			<arg value="--ignore=tmpl,libraries/" />
+			<arg value="--ignore=${build.dir},${source}/tmpl,${source}/libraries" />
 		</exec>
 	</target>
 

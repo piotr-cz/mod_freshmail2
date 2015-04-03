@@ -3,6 +3,8 @@
 ##
 
 # Builds
+/build
+/releases
 /*.zip
 
 # Backup files
