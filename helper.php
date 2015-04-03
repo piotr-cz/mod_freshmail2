@@ -153,7 +153,7 @@ class ModFreshmail2Helper
 		// No cached items
 		if ($response === false)
 		{
-			$client = new JFmRestApi();
+			$client = new JFmRestApi;
 			$client->setApiKey($apiKey);
 			$client->setApiSecret($apiSecret);
 
@@ -366,7 +366,7 @@ class ModFreshmail2Helper
 		}
 
 		// Decode mnodule params
-		$params = new JRegistry();
+		$params = new JRegistry;
 		$params->loadString($table->params);
 
 		// Read POSTed data
@@ -498,7 +498,7 @@ class ModFreshmail2Helper
 		$isSingle = (count($params->get('FMlistHash')) == 1);
 
 		// Instanitate Client
-		$client = new JFmRestApi();
+		$client = new JFmRestApi;
 
 		$client->setApiKey($params->get('FMapiKey'));
 		$client->setApiSecret($params->get('FMapiSecret'));

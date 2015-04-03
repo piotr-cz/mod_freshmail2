@@ -69,7 +69,7 @@ class JFmRestApi // extends FmRestApi
 	/**
 	 * Raw response
 	 *
-	 * @var    string
+	 * @var    string|false
 	 */
 	private $rawResponse;
 
@@ -114,7 +114,7 @@ class JFmRestApi // extends FmRestApi
 	/**
 	 * Get raw response
 	 *
-	 * @return  string
+	 * @return  string|false
 	 */
 	public function getRawResponse()
 	{
@@ -172,7 +172,7 @@ class JFmRestApi // extends FmRestApi
 	/**
 	 * Set request content type
 	 *
-	 * @param   string
+	 * @param   string  $contentType
 	 *
 	 * @return  JFmRestApi  Returns itself to support chaining.
 	 */
@@ -205,6 +205,9 @@ class JFmRestApi // extends FmRestApi
 	 * @param   boolean     $boolRawResponse  Return raw response
 	 *
 	 * @return  array  Parsed response
+	 *
+	 * @throws  RestException
+	 * @throws  Exception
 	 *
 	 * @note    `No HTTP response received.` means no connection
 	 */

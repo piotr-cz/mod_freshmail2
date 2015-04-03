@@ -77,8 +77,10 @@ if (!empty($inputData) && ModFreshmail2Helper::validate($inputData, $params))
 	{
 		ModFreshmail2Helper::sendEmail($inputData, $params)
 			&& ModFreshmail2Helper::postHook($control, $params);
+	}
 	// Hand over form data to layout so user may try again
-	} else {
+	else
+	{
 		$stateValues = $inputData;
 	}
 }
