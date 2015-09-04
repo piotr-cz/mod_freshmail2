@@ -3,7 +3,6 @@
 ##
 
 # Builds
-/build
 /releases
 /*.zip
 

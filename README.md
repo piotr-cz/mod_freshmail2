@@ -32,7 +32,7 @@ Wymagania
 Instalacja
 ----------
 
-1. Pobierz [najnowsze wydanie](https://github.com/piotr-cz/mod_freshmail2/releases) i zainstaluj za pomocą Instalatora Rozszerzeń Joomla _(Rozszerzenia > Instalacje > Instaluj z pakietu)_.
+1. Pobierz [najnowsze wydanie](https://github.com/piotr-cz/mod_freshmail2/releases/latest) i zainstaluj za pomocą Instalatora Rozszerzeń Joomla _(Rozszerzenia > Instalacje > Instaluj z pakietu)_.
 2. Dodaj moduł _(Rozszerzenia > Moduły > Utwórz > Freshmail Subscription)_
 
 

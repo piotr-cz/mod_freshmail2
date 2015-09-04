@@ -1,10 +1,26 @@
 {
 	"name": "piotr-cz/mod_freshmail2",
+	"description": "Module for newsletter subscription in Freshmail system",
+	"version": "v1.1.3",
 	"type": "joomla-module",
+	"homepage": "https://github.com/piotr-cz/mod_freshmail2",
+	"licence": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Piotr Konieczny",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/piotr-cz/mod_freshmail2/issues"
+	},
 	"require": {
 		"php": ">=5.3.10",
 		"composer/installers": "~1.0"
 	},
 	"require-dev": {
+	},
+	"extra": {
+		"installer-name": "mod_freshmail2"
 	}
 }
