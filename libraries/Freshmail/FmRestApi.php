@@ -36,7 +36,7 @@ class JFmRestApi // extends FmRestApi
 	 *
 	 * @var    string
 	 */
-	const host = 'https://app.freshmail.com/';
+	const host = 'https://api.freshmail.com/';
 
 	/**
 	 * API prefix
