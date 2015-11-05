@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
+## Changed
+- Updated API Key and API Secret referencees to FreshMail 6.0
 
 [v1.1.4] - 2015-09-04
 ---------------------

@@ -43,7 +43,7 @@ Configuration
 2. Enter **API Secret (40 characters)** _(Options > API Secret)_
 3. Select Subscribers list _(Options > Subscribers list)_
 
-In freshmail.com panel you may find API Key and API Secret in _Contact list > Parameters > API keys_ or in _Settings > Plugins and API > Your API keys_.
+In your [freshmail.com panel](https://app.freshmail.com/pl/dashboard/index/) you may find API Key and API Secret in _Subscribers > contact list > Parameters > API keys_ or in _[Settings > Plugins and API > Your API keys](https://app.freshmail.com/en/settings/integration/)_.
 
 
 ### Basic options

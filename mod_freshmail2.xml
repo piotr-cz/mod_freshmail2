@@ -49,6 +49,10 @@
 			<fieldset
 				name="basic"
 			>
+
+				<!-- Api Keys URL -->
+				<field name="spacer_b1" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_APIKEYSURL_SPACER" />
+
 				<!-- API Key -->
 				<field
 					name="FMapiKey"

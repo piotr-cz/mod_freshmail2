@@ -44,7 +44,7 @@ Konfiguracja
 3. Wybierz Listę odbiorców _(Opcje > Lista odbiorców)_
 
 
-W panelu freshmail.pl Klucz API oraz API Sekret znajddziesz w _liście odbiorców > Parametry > Klucze API_ lub w _Ustawienia > Wtyczki i API > Twoje klucze API_.
+W Twoim [panelu freshmail.pl](https://app.freshmail.com/pl/dashboard/index/) Klucz API oraz API Sekret znajdziesz w _Odbiorcy > lista odbiorców > Parametry > Klucze API_ lub w _[Ustawienia > Wtyczki i API > Twoje klucze API](https://app.freshmail.com/pl/settings/integration/)_.
 
 
 ### Opcje podstawowe
