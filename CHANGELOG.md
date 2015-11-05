@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ------------------------
 ## Changed
 - Updated API Key and API Secret referencees to FreshMail 6.0
+- Improvements to language strings
+
+### Fixed
+- Joomla 3.4 validation compatibility
 
 [v1.1.4] - 2015-09-04
 ---------------------
