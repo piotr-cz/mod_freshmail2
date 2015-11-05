@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
-JHtml::_((JVersion::isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior.formvalidation');
+JHtml::_(($jversion->isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior.formvalidation');
 ?>
 <form class="form-validate <?php echo $moduleclass_sfx ?>" data-freshmail2="<?php echo $control ?>" method="post" action="<?php echo JUri::getInstance() ?>">
 	<?php // Lists ?>

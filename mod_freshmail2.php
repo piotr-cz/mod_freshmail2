@@ -15,6 +15,7 @@ require_once __DIR__ . '/helper.php';
 // Initialize variables
 $app = JFactory::getApplication();
 $input = $app->input;
+$jversion = new JVersion();
 
 // Check required params
 if (!$params->get('FMapiKey')
