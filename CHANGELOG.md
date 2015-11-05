@@ -5,7 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
-## Changed
+
+[v1.1.5] - 2015-11-05
+---------------------
+### Changed
 - Updated API Key and API Secret referencees to FreshMail 6.0
 - Improvements to language strings
 
@@ -53,7 +56,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.4...HEAD
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.5...HEAD
+[v1.1.5]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.4...v1.1.5
 [v1.1.4]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.3...v1.1.4
 [v1.1.3]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.2...v1.1.3
 [v1.1.2]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.1...v1.1.2

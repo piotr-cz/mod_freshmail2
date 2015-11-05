@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-	<xsl:output method="html"/>
+	<xsl:output method="html" />
 	<xsl:template match="/">
 		<xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE html>]]></xsl:text>
 		<html lang="en">
 			<head>
-				<meta charset="utf-8"/>
-				<title><xsl:value-of select="/updates/update/name"/> - Available downloads</title>
+				<meta charset="utf-8" />
+				<title><xsl:value-of select="/updates/update/name" /> - Available downloads</title>
 
-				<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+				<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 				<style type="text/css">
 					.jumbotron {
 						padding: .25em 0;
@@ -28,7 +28,7 @@
 				<div class="jumbotron">
 					<div class="container">
 						<h1>
-							<xsl:value-of select="/updates/update/name"/>
+							<xsl:value-of select="/updates/update/name" />
 						</h1>
 						<p>
 							Available downloads
@@ -38,9 +38,9 @@
 				<div class="container table-responsive">
 					<table class="table table-striped table-hover table-condensed">
 						<colgroup>
-							<col/>
-							<col span="3" width="12%"/>
-							<col span="2" width="15%"/>
+							<col />
+							<col span="3" width="12%" />
+							<col span="2" width="15%" />
 						</colgroup>
 						<thead>
 							<tr>
@@ -88,7 +88,7 @@
 
 							<tr class="{$firstRow}">
 								<th class="text-right">
-									<xsl:value-of select="version"/>
+									<xsl:value-of select="version" />
 								</th>
 								<td>
 									<span class="label label-{$stabilityLabel}">
@@ -97,7 +97,7 @@
 								</td>
 								<td>
 									<span class="badge">
-										<xsl:value-of select="targetplatform/@version"/>
+										<xsl:value-of select="targetplatform/@version" />
 									</span>
 								</td>
 								<td>
