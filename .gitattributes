@@ -31,3 +31,6 @@
 
 # Archives
 /*.zip
+
+# WIPs
+/mod_freshmail2.scriptfile.php

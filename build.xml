@@ -12,7 +12,6 @@
 	-->
 	<property name="source" value="." />
 	<property name="build.dir" value="./build" />
-	<property file="build.properties" />
 
 
 	<!--
@@ -28,18 +27,6 @@
 
 			<arg value="--report=full" />
 			<arg value="--ignore=${build.dir},${source}/tmpl,${source}/libraries" />
-		</exec>
-	</target>
-
-
-	<!--
-		Tag
-		@link http://git-scm.com/book/en/Git-Basics-Tagging
-	-->
-	<target name="tag" description="Tag an extension">
-		<exec executable="git" logoutput="true">
-			<arg value="tag" />
-			<arg value="v${newVersion}" />
 		</exec>
 	</target>
 
@@ -84,7 +71,7 @@
 				<!-- Phing build -->
 				<exclude name="build.xml" />
 				<exclude name="build.properties" />
-				
+
 				<!-- Archives -->
 				<exclude name="**.zip" />
 
