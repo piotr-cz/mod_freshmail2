@@ -91,7 +91,14 @@ class JFormFieldFmLists extends JFormFieldList
 		}
 		catch (Exception $e)
 		{
-			return static::wrapLabel($e->getMessage(), 'error');
+			$message = $e->getMessage();
+
+			// Service is temporarily unavailable (like 503)
+			if ($message == 'No HTTP response received') {
+				$message = JText::sprintf('MOD_FRESHMAIL2_FIELD_APISTATUS_TRYLATER', $message);
+			}
+
+			return static::wrapLabel($message, 'error');
 		}
 
 		return $html;
@@ -164,7 +171,7 @@ class JFormFieldFmLists extends JFormFieldList
 	 * 'inverse'	=> 'inverse',	// label
 	 * 'muted'		=> ' muted',	// p
 	 */
-		'error'		=> 'error',		// p
+		'error'		=> 'inverse',	// p
 		'warning'	=> 'warning',
 		'info'		=> 'info',
 		'success'	=> 'success',

@@ -209,7 +209,7 @@ class JFmRestApi // extends FmRestApi
 	 * @throws  RestException
 	 * @throws  Exception
 	 *
-	 * @note    `No HTTP response received.` means no connection
+	 * @note    `No HTTP response received` means no connection
 	 */
 	public function doRequest($strUrl, $arrParams = array(), $boolRawResponse = false)
 	{
