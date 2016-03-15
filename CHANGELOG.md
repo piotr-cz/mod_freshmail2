@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 [Unreleased][unreleased]
 ------------------------
 
+[v1.1.6] - 2016-03-15
+---------------------
+### Changed
+- More explicit message when API service is not available
+
 [v1.1.5] - 2015-11-05
 ---------------------
 ### Changed
@@ -56,7 +61,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.5...HEAD
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...HEAD
+[v1.1.6]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.5...v1.1.6
 [v1.1.5]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.4...v1.1.5
 [v1.1.4]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.3...v1.1.4
 [v1.1.3]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.2...v1.1.3

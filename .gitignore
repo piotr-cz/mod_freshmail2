@@ -9,5 +9,9 @@
 # Backup files
 /*.bak
 
+# Components
+/vendor
+/.composer.lock
+
 # Notes
 NOTES.md
