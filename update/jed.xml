@@ -24,13 +24,13 @@ For more details, see [Extension page](http://freshmail.com/plugin/joomla-newsle
 
 	<!-- valid links only or leave blank -->
 	<homepage_link>https://github.com/piotr-cz/mod_freshmail2</homepage_link>
-	<download_link>https://github.com/piotr-cz/mod_freshmail2/archive/v1.1.6.zip</download_link>
+	<download_link>https://github.com/piotr-cz/mod_freshmail2/archive/v1.1.7.zip</download_link>
 	<demo_link />
 	<documentation_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/README.en.md</documentation_link>
 	<support_link>https://github.com/piotr-cz/mod_freshmail2/issues</support_link>
 	<license_link>https://github.com/piotr-cz/mod_freshmail2/blob/master/LICENSE.txt</license_link>
 
-	<version>1.1.6</version>
+	<version>1.1.7</version>
 
 	<compatibility>
 		<version>25</version>

@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 [Unreleased][unreleased]
 ------------------------
 
+[v1.1.7] - 2016-03-17
+---------------------
+### Fixed
+- Conflict with email cloak plugin
+
 [v1.1.6] - 2016-03-15
 ---------------------
 ### Changed
@@ -61,7 +66,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...HEAD
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.7...HEAD
+[v1.1.7]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...v1.1.7
 [v1.1.6]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.5...v1.1.6
 [v1.1.5]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.4...v1.1.5
 [v1.1.4]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.3...v1.1.4
