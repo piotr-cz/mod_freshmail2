@@ -101,11 +101,19 @@ if ($isAjaxEnabled)
 }
 
 // Get list of custom fields
-$customFields 		= ModFreshmail2Helper::getProcessedCustomFields($params);
+$customFields		= ModFreshmail2Helper::getProcessedCustomFields($params);
 
+
+/*
+ * Hack to check if inside com_content context (injected using {loadposition/ loadmodule } shortcode).
+ * There is a risk that emailcloak plugin is on (by default it is) so let's disable it for current article.
+ * Another solution would be to skip setting state.
+ * Bug report: https://github.com/joomla/joomla-cms/issues/5080
+ */
+$isEmailCloakActive	= (isset($scope) && $scope == 'com_content' && JPluginHelper::isEnabled('content', 'emailcloak'));
 
 // Escape Modeuleclass Suffix
-$moduleclass_sfx 	= htmlspecialchars($params->get('moduleclass_sfx'));
+$moduleclass_sfx	= htmlspecialchars($params->get('moduleclass_sfx'));
 
 // Load layout
 require JModuleHelper::getLayoutPath('mod_freshmail2', $params->get('layout', 'twbs23'));

@@ -61,3 +61,4 @@ JHtml::_(($jversion->isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior
 		<?php echo JHtml::_('form.token') ?>
 	</fieldset>
 </form>
+<?php if ($isEmailCloakActive) : ?><!--{emailcloak=off}--><?php endif ?>
