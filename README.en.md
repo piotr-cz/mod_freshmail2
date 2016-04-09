@@ -32,7 +32,7 @@ Requirements
 Installation
 ------------
 
-1. Download [latest release](https://github.com/piotr-cz/mod_freshmail2/releases/latest) and install using Extension Manager _(Extensions > Extension Manager > Upload Package File)_.
+1. Download [latest release](https://github.com/piotr-cz/mod_freshmail2/releases/latest) and install using Extension Manager _(Extensions > Manage > Upload Package File)_.
 2. Add module _(Extensions > Module Manager > New > Freshmail Subscription)_
 
 
@@ -128,4 +128,4 @@ Issues/ Feature requirements
 
 [Submit issue or feature requirement here](https://github.com/piotr-cz/mod_freshmail2/issues)
 
-[Latest development version](https://github.com/piotr-cz/mod_freshmail2/archive/master.zip)
+[Latest development snapshot](https://github.com/piotr-cz/mod_freshmail2/archive/master.zip)

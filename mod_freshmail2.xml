@@ -60,6 +60,7 @@
 					class="input-xlarge"
 					label="MOD_FRESHMAIL2_FIELD_FMAPIKEY_LABEL"
 					description="MOD_FRESHMAIL2_FIELD_FMAPIKEY_DESC"
+					hint="MOD_FRESHMAIL2_FIELD_FMAPIKEY_HINT"
 					size="32"
 					filter="raw"
 					default=""
@@ -72,6 +73,7 @@
 					class="input-xlarge"
 					label="MOD_FRESHMAIL2_FIELD_FMAPISECRET_LABEL"
 					description="MOD_FRESHMAIL2_FIELD_FMAPISECRET_DESC"
+					hint="MOD_FRESHMAIL2_FIELD_FMAPISECRET_HINT"
 					size="40"
 					filter="raw"
 					default=""
@@ -147,6 +149,7 @@
 
 
 				<field name="spacer_a4" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_LIMIT_SPACER" />
+
 
 				<!-- Limit registrations -->
 				<field
@@ -241,6 +244,7 @@
 					type="email"
 					label="MOD_FRESHMAIL2_FIELD_NOTIFICATION_TO_LABEL"
 					description="MOD_FRESHMAIL2_FIELD_NOTIFICATION_TO_DESC"
+					hint="hello@there.com"
 					default=""
 				/>
 
