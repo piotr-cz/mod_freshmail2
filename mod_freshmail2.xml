@@ -252,6 +252,20 @@
 				<field name="spacer_a3" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_OTHER_SPACER" />
 
 
+				<!-- Captcha -->
+				<field
+					name="captcha"
+					type="plugins"
+					folder="captcha"
+					default=""
+					label="MOD_FRESHMAIL2_FIELD_CAPTCHA_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_CAPTCHA_DESC"
+					filter="cmd"
+				>
+					<option value="">JOPTION_USE_DEFAULT</option>
+					<option value="0">JOPTION_DO_NOT_USE</option>
+				</field>
+
 				<!-- Alternative Layout -->
 				<field
 					name="layout"

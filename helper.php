@@ -432,6 +432,20 @@ class ModFreshmail2Helper
 			return false;
 		}
 
+		// Captcha
+		$captcha = static::getCaptcha($params);
+
+		if ($captcha instanceof JCaptcha
+			&& !$captcha->checkAnswer(isset($data['captcha']) ? $data['captcha'] : null)
+		)
+		{
+			$error = $captcha->getError();
+
+			$app->enqueueMessage($error instanceof Exception ? $error->getMessage() : $error, 'error');
+
+			return false;
+		}
+
 		// Terms of Service
 		if ($params->get('tos_menuitem') && empty($data['tos']))
 		{
@@ -715,5 +729,33 @@ class ModFreshmail2Helper
 			/* type boolean Used this module to subscribe */
 			'subscribed' => false,
 		);
+	}
+
+	/**
+	 * Get captcha instance or null if not available
+	 *
+	 * @param   JRegistry  $params  Extension parameters
+	 *
+	 * @return  JCaptcha|null
+	 */
+	public static function getCaptcha(JRegistry $params)
+	{
+		$pluginName = $params->get('captcha', JFactory::getApplication()->get('captcha', '0'));
+
+		// Disabled
+		if ($pluginName == '0' || !$pluginName)
+		{
+			return null;
+		}
+
+		$plugins = JPluginHelper::getPlugin('captcha');
+
+		// Selected plugin not available
+		if (!in_array($pluginName, JArrayHelper::getColumn($plugins, 'name')))
+		{
+			return null;
+		}
+
+		return JCaptcha::getInstance($pluginName, array('namespace' => 'mod_freshmail2'));
 	}
 }

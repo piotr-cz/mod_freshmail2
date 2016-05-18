@@ -55,6 +55,11 @@ JHtml::_(($jversion->isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior
 		</p>
 		<?php endif ?>
 
+		<?php // Captcha ?>
+		<?php if ($captcha instanceof JCaptcha) : ?>
+			<?php echo $captcha->display('captcha', $control . '_captcha', 'form-control  form-group') ?>
+		<?php endif ?>
+
 		<?php // Submit button ?>
 		<button class="button validate" type="submit"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>
 
