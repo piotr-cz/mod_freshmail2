@@ -9,7 +9,7 @@
 		LICENSE.txt</license>
 	<authorEmail>hello@piotr.cz</authorEmail>
 	<authorUrl>www.piotr.cz</authorUrl>
-	<version>1.1.7</version>
+	<version>1.2.0</version>
 	<description>MOD_FRESHMAIL2_XML_DESCRIPTION</description>
 
 	<files>
@@ -49,7 +49,6 @@
 			<fieldset
 				name="basic"
 			>
-
 				<!-- Api Keys URL -->
 				<field name="spacer_b1" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_APIKEYSURL_SPACER" />
 
@@ -147,9 +146,7 @@
 					filer="int"
 				/>
 
-
 				<field name="spacer_a4" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_LIMIT_SPACER" />
-
 
 				<!-- Limit registrations -->
 				<field
@@ -175,7 +172,6 @@
 					default="0"
 				/>
 
-
 				<!-- Max impressions -->
 				<field
 					name="limit_count"
@@ -187,9 +183,7 @@
 					default="0"
 				/>
 
-
 				<field name="spacer_a1" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_FM_ADVANCED_SPACER" />
-
 
 				<!-- Kody Statusow Subskrybentow -->
 				<field
@@ -221,9 +215,7 @@
 					<option value="1">JYES</option>
 				</field>
 
-
 				<field name="spacer_a2" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_NOTIFICATION_SPACER" />
-
 
 				<!-- Notification Enabled -->
 				<field
@@ -248,9 +240,7 @@
 					default=""
 				/>
 
-
 				<field name="spacer_a3" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_OTHER_SPACER" />
-
 
 				<!-- Captcha -->
 				<field

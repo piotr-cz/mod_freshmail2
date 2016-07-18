@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
+
+[v1.2.0] - 2016-07-18
+---------------------
+### Added
+- Captcha support
+
 ### Fixed
 - Fixed link to documentation (thanks @piotrslabik1)
 
@@ -68,7 +74,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.7...HEAD
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.0...HEAD
+[v1.2.0]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.7...v1.2.0
 [v1.1.7]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...v1.1.7
 [v1.1.6]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.5...v1.1.6
 [v1.1.5]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.4...v1.1.5
