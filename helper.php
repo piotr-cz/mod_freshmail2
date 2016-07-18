@@ -120,7 +120,7 @@ class ModFreshmail2Helper
 	 * @param   string   $command         Command name
 	 * @param   array    $params          Command parameters
 	 * @param   string   $key             Result set key
-	 * @param   boolean  $cacheCheckTime  Check cache time (Site opraters on data updated by Admin)
+	 * @param   boolean  $cacheCheckTime  Check cache time (Site operates on data updated by Admin)
 	 *
 	 * @return  array  Result set
 	 *
