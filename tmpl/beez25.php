@@ -53,13 +53,20 @@ JHtml::_(($jversion->isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior
 
 	<?php // Terms of Service ?>
 	<?php if ($tosLink) : ?>
-	<p class="clr">
+	<p>
 		<label for="<?php echo $control ?>_tos">
 			<input class="inputbox required" id="<?php echo $control ?>_tos" name="<?php echo $control ?>[tos]" type="checkbox" value="1"<?php if (!empty($stateValues['tos'])) : ?> checked="checked"<?php endif ?> required="required" />
 			<small><?php echo JText::sprintf('MOD_FRESHMAIL2_TOSLINK_TEXT', JRoute::_($tosLink)) ?></small>
 		</label>
 	</p>
 	<?php endif ?>
+
+
+	<?php // Captcha ?>
+	<?php if ($captcha instanceof JCaptcha) : ?>
+		<?php echo $captcha->display('captcha', $control . '_captcha', 'form-control  form-group') ?>
+	<?php endif ?>
+
 
 	<?php // Submit button ?>
 	<button class="button validate" type="submit"><?php echo JText::_('MOD_FRESHMAIL2_SUBSCRIBE') ?></button>

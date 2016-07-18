@@ -115,5 +115,8 @@ $isEmailCloakActive	= (isset($scope) && $scope == 'com_content' && JPluginHelper
 // Escape Modeuleclass Suffix
 $moduleclass_sfx	= htmlspecialchars($params->get('moduleclass_sfx'));
 
+// Capcha
+$captcha = ModFreshmail2Helper::getCaptcha($params);
+
 // Load layout
 require JModuleHelper::getLayoutPath('mod_freshmail2', $params->get('layout', 'twbs23'));
