@@ -30,7 +30,7 @@
 /composer.lock export-ignore
 
 # Archives
-/*.zip
+/*.zip export-ignore
 
 # WIPs
-/mod_freshmail2.scriptfile.php
+/mod_freshmail2.scriptfile.php export-ignore

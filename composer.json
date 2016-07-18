@@ -18,7 +18,7 @@
 		"composer/installers": "~1.0"
 	},
 	"require-dev": {
-		"squizlabs/php_codesniffer": "^1.5"
+		"greencape/coding-standards": "~1"
 	},
 	"extra": {
 		"installer-name": "mod_freshmail2"
