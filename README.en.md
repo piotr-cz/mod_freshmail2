@@ -19,12 +19,13 @@ Functionality
 - Limit module Impressions or Duration or hide after registration
 - Ajax (req. Joomla 3.1+)
 - Subscription list selection
+- Captcha integration
 
 
 Requirements
 ------------
 
-- Joomla 2.5+
+- Joomla 2.5+ or 3.0+
 - PHP 5.3
 - Account in Freshmail system
 

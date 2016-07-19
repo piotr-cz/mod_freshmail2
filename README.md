@@ -19,12 +19,13 @@ Funkcje
 - Ograniczenie liczby wyświetleń lub ukrycie modułu po registracji
 - Ajax (wymagana Joomla 3.1+)
 - Wybór listy subkrypcyjnej
+- Integracha Captcha
 
 
 Wymagania
 ---------
 
-- Joomla 2.5+
+- Joomla 2.5+ or 3.0+
 - PHP 5.3
 - Konto w systemie FreshMail
 
