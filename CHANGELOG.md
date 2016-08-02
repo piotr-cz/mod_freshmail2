@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
+### Added
+- Additional module security checks
 
 [v1.2.0] - 2016-07-18
 ---------------------

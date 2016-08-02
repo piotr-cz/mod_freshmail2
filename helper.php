@@ -356,16 +356,34 @@ class ModFreshmail2Helper
 			return new LogicException('No module id');
 		}
 
-		// Load module
+		// Load module instance
 		$moduleId = substr($control, 4);
 		$table = JTable::getInstance('module');
 
 		if (!$table->load(array('id' => $moduleId)))
 		{
-			return new LogicException('No module');
+			new LogicException(JText::sprintf('COM_AJAX_MODULE_NOT_ACCESSIBLE', $control), 404);
 		}
 
-		// Decode mnodule params
+		// Check published state and access levels
+		if ($table->published != 1 || !in_array($table->access, JFactory::getUser()->getAuthorisedViewLevels()))
+		{
+			return new RuntimeException(JText('JERROR_ALERTNOAUTHOR'), 403);
+		}
+
+		// Check publish_up and publish_down
+		$now = JFactory::getDate()->toSql();
+		$dbNullDate = JFactory::getDbo()->getNullDate();
+		$dbDateFormat = JFactory::getDbo()->getDateFormat();
+
+		if (($table->publish_up != $dbNullDate && $now < DateTime::createFromFormat($dbDateFormat, $table->publish_up, 'UTC'))
+			|| ($table->publish_down != $dbNullDate && $now > DateTime::createFromFormat($dbDateFormat, $table->publish_up, 'UTC'))
+		)
+		{
+			return new RuntimeException(JText('JERROR_ALERTNOAUTHOR'), 403);
+		}
+
+		// Decode module params
 		$params = new JRegistry;
 		$params->loadString($table->params);
 
