@@ -7,6 +7,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ------------------------
 ### Added
 - Additional module security checks
+- Added option to redirect to menu item on success
+
+### Fixed
+- Fixed closing elemnent tag in twbs23 layout
+
+### Changed
+- Rearanged module options
 
 [v1.2.0] - 2016-07-18
 ---------------------

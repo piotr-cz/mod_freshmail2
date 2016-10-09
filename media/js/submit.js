@@ -1,4 +1,4 @@
-/**
+/*!
  * @package     Freshmail2.Site
  * @subpackage  mod_freshmail2
  *
@@ -58,12 +58,17 @@
 		// Successful subscription response contains message in data key, unsuccessful in message key
 		var messages = response.messages ||
 			(response.success ?
-				{success : [response.data || 'OK']} :
+				{success : [response.data.message || 'OK']} :
 				{error   : [response.message || 'Unknown error']}
 			)
 		;
 
 		Joomla.renderMessages(messages);
+
+		// Redirect
+		if (response.data && response.data.redirectUrl) {
+			window.location.href = response.data.redirectUrl;
+		}
 	};
 
 	/**

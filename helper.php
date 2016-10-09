@@ -30,7 +30,7 @@ class ModFreshmail2Helper
 	 * @return  boolean  True to skip module rendering
 	 *
 	 * @note    Doesn't use on cookie: Possible read/write conflict with
-	 *          multiple modules as JInput doesn't throttle IO operations 
+	 *          multiple modules as JInput doesn't throttle IO operations
 	 *          till request EOL.
 	 */
 	public static function canSkip($control, JRegistry $params)
@@ -341,7 +341,8 @@ class ModFreshmail2Helper
 	public static function postAjax()
 	{
 		// Get JInput object
-		$input = JFactory::getApplication()->input;
+		$app = JFactory::getApplication();
+		$input = $app->input;
 
 		// Load module language file
 		$lang = JFactory::getLanguage();
@@ -422,8 +423,20 @@ class ModFreshmail2Helper
 				static::sendEmail($inputData, $params)
 					&& static::postHook($control, $params);
 
+				$response = array(
+					'message' => JText::_('MOD_FRESHMAIL2_SUCCESS')
+				);
+
+				if ($params->get('redirectMenuitem'))
+				{
+					$menu = $app->getMenu();
+					$menuItem = $menu->getItem($params->get('redirectMenuitem'));
+
+					$response['redirectUrl'] = JRoute::_($menuItem->link . '&Itemid=' . $menuItem->id);
+				}
+
 				// All is OK
-				return JText::_('MOD_FRESHMAIL2_SUCCESS');
+				return $response;
 			}
 		}
 
@@ -730,6 +743,22 @@ class ModFreshmail2Helper
 		}
 
 		return true;
+	}
+
+	/**
+	 * Redirect
+	 *
+	 * @param   JRegistry  $params
+	 *
+	 * @return  void
+	 */
+	public static function redirect(JRegistry $params)
+	{
+		$app = JFactory::getApplication();
+		$menu = $app->getMenu();
+		$menuItem = $menu->getItem($params->get('redirectMenuitem'));
+
+		$app->redirect(JRoute::_($menuItem->link . '&Itemid=' . $menuItem->id));
 	}
 
 	/**

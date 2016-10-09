@@ -133,9 +133,10 @@
 				</field>
 			</fieldset>
 
-			<!-- Advanced Options -->
+			<!-- Additional Options -->
 			<fieldset
-				name="advanced"
+				name="additional"
+				label="MOD_FRESHMAIL2_FIELDSET_ADDITIONAL_LABEL"
 			>
 				<!-- API Timeout -->
 				<field
@@ -256,6 +257,20 @@
 					<option value="0">JOPTION_DO_NOT_USE</option>
 				</field>
 
+				<!-- Redirect -->
+				<field
+					name="redirectMenuitem"
+					type="menuitem"
+					label="MOD_FRESHMAIL2_FIELD_REDIRECT_MENUITEM_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_REDIRECT_MENUITEM_DESC"
+					disable="separator,alias,heading,url"
+				>
+					<option value="">JNONE</option>
+				</field>
+			</fieldset>
+
+			<!-- Additional Options -->
+			<fieldset name="advanced">
 				<!-- Alternative Layout -->
 				<field
 					name="layout"
@@ -269,9 +284,9 @@
 				<field
 					name="moduleclass_sfx"
 					type="textarea"
-					rows="3"
 					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
 					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
 				/>
 			</fieldset>
 		</fields>
