@@ -50,7 +50,8 @@ JHtml::_(($jversion->isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior
 		</label>
 		<?php endif ?>
 	</div>
-		<?php // Captcha ?>
+
+	<?php // Captcha ?>
 	<?php if ($captcha instanceof JCaptcha) : ?>
 	<div class="control-group  form-group">
 		<?php echo $captcha->display('captcha', $control . '_captcha', ' ') ?>
