@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
+
+[v1.2.1] - 2016-10-09
+---------------------
 ### Added
 - Additional module security checks
 - Added option to redirect to menu item on success
@@ -13,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed closing elemnent tag in twbs23 layout
 
 ### Changed
-- Rearanged module options
+- Rearranged module options
 
 [v1.2.0] - 2016-07-18
 ---------------------
@@ -83,7 +86,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.0...HEAD
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.1...HEAD
+[v1.2.1]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.7...v1.2.0
 [v1.1.7]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...v1.1.7
 [v1.1.6]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.5...v1.1.6
