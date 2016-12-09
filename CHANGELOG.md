@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
+### Changed
+- Do not use ajax functionality when messages container is not available
 
 [v1.2.1] - 2016-10-09
 ---------------------

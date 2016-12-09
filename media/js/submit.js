@@ -16,6 +16,12 @@
 
 	// Initialize on DOM ready
 	jQuery(function() {
+
+		// Skip when message container is not available
+		if (!document.getElementById('system-message-container')) {
+			return;
+		}
+
 		jQuery('form[data-freshmail2]').on('submit', onFormSubmit);
 	});
 
@@ -63,7 +69,17 @@
 			)
 		;
 
-		Joomla.renderMessages(messages);
+		try {
+			Joomla.renderMessages(messages);
+		} catch (e) {
+			var fallbackMessages = [];
+
+			for (type in messages) {
+				fallbackMessages.push(messages[type].join(', '));
+			}
+
+			window.alert(fallbackMessages.join('; '));
+		}
 
 		// Redirect
 		if (response.data && response.data.redirectUrl) {
@@ -78,9 +94,13 @@
 	 * @param {string} errorThrown
 	 */
 	function onSubmitError(jqXHR, responseStatus, errorThrown) {
-		Joomla.renderMessages({
-			'error': [responseStatus || 'Unknown error']
-		});
+		try {
+			Joomla.renderMessages({
+				'error': [responseStatus || 'Unknown error']
+			});
+		} catch (e) {
+			window.alert(responseStatus || 'Unknown error');
+		}
 	};
 
 }(jQuery, Joomla));
