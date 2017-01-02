@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ------------------------
 ### Changed
 - Do not use ajax functionality when messages container is not available
+- Updated copyright to 2017
 
 [v1.2.1] - 2016-10-09
 ---------------------
