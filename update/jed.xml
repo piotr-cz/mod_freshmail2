@@ -34,6 +34,8 @@ For more details, see [Extension page](http://freshmail.com/plugin/joomla-newsle
 
 	<compatibility>
 		<version>25</version>
-		<version>30</version>
+		<version>35</version>
+		<version>36</version>
+		<version>37</version>
 	</compatibility>
 </jedupdate>
