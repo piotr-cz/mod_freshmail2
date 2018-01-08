@@ -3,7 +3,7 @@
  * @package     Freshmail2.Site
  * @subpackage  lib_freshmail
  *
- * @copyright   Copyright (C) 2013 - 2017 Piotr Konieczny. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2018 Piotr Konieczny. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -289,8 +289,8 @@ class JFmRestApi // extends FmRestApi
 		// Note: For <= J3.x headers must be included in request itself.
 		/* @type JHttpResponse Object */
 		/* @throws UnexpectedValueException */
-		$responseObject = ($strPostData) 
-			? $jHttp->post($requestUri, $strPostData, $arrHeaders) 
+		$responseObject = ($strPostData)
+			? $jHttp->post($requestUri, $strPostData, $arrHeaders)
 			: $jHttp->get($requestUri, $arrHeaders);
 
 		// Assign response variables

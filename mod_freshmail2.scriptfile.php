@@ -3,7 +3,7 @@
  * @package     Freshmail2.Site
  * @subpackage  mod_freshmail2
  *
- * @copyright   Copyright (C) 2013 - 2017 Piotr Konieczny. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2018 Piotr Konieczny. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -29,7 +29,7 @@ class ModFreshmail2InstallerScript
 		if ($type !== 'update') {
 			return $this->configure();
 		}
-        
+
 		return true;
 	}
 
