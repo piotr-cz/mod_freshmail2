@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased][unreleased]
 ------------------------
+
+[v1.2.2] - 2018-05-25
+---------------------
 ### Changed
 - Do not use ajax functionality when messages container is not available
 - Updated copyright to 2018
@@ -89,7 +92,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.1...HEAD
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.2...HEAD
+[v1.2.1]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.1...v1.2.2
 [v1.2.1]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.7...v1.2.0
 [v1.1.7]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...v1.1.7
