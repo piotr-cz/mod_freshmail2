@@ -108,16 +108,6 @@
 					hide_messages="true"
 				/>
 
-				<!-- TOS menuitem -->
-				<field
-					name="tos_menuitem"
-					type="menuitem"
-					label="MOD_FRESHMAIL2_FIELD_TOS_LINK_LABEL"
-					description="MOD_FRESHMAIL2_FIELD_TOS_LINK_DESC"
-				>
-					<option value="">JDISABLED</option>
-				</field>
-
 				<!-- Ajax -->
 				<field
 					name="ajax_enabled"
@@ -131,6 +121,42 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
+
+				<field name="spacer_b2" type="spacer" hr="false" label="MOD_FRESHMAIL2_FIELD_TOS_SPACER" />
+
+				<!-- TOS menuitem -->
+				<field
+					name="tos_menuitem"
+					type="menuitem"
+					label="MOD_FRESHMAIL2_FIELD_TOS_LINK_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_TOS_LINK_DESC"
+				>
+					<option value="">JDISABLED</option>
+				</field>
+
+				<!-- TOS text -->
+				<field
+					name="tos_info_text"
+					type="text"
+					class="input-xxlarge"
+					label="MOD_FRESHMAIL2_FIELD_TOS_INFO_TEXT_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_TOS_INFO_TEXT_DESC"
+					hint="MOD_FRESHMAIL2_FIELD_TOS_INFO_TEXT_HINT"
+					default=""
+					showon="tos_menuitem!:"
+				/>
+
+				<!-- TOS button -->
+				<field
+					name="tos_button_text"
+					type="text"
+					class="input-small"
+					label="MOD_FRESHMAIL2_FIELD_TOS_BUTTON_LABEL_LABEL"
+					description="MOD_FRESHMAIL2_FIELD_TOS_BUTTON_LABEL_DESC"
+					hint="MOD_FRESHMAIL2_FIELD_TOS_BUTTON_TEXT_HINT"
+					default=""
+					showon="tos_menuitem!:"
+				/>
 			</fieldset>
 
 			<!-- Additional Options -->

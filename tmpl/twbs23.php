@@ -56,7 +56,13 @@ JHtml::_(($jversion->isCompatible('3.4')) ? 'behavior.formvalidator' : 'behavior
 		<div class="checkbox">
 			<label for="<?php echo $control ?>_tos">
 				<input class="required" id="<?php echo $control ?>_tos" name="<?php echo $control ?>[tos]" type="checkbox" value="1"<?php if (!empty($stateValues['tos'])) : ?> checked="checked"<?php endif ?> required="required" />
-				<small><?php echo JText::sprintf('MOD_FRESHMAIL2_TOSLINK_TEXT', JRoute::_($tosLink)) ?></small>
+				<small>
+					<?php if ($params->get('tos_info_text')) : ?>
+						<?php echo sprintf($params->get('tos_info_text'), sprintf('<a href="%s" target="site">%s</a>', JRoute::_($tosLink), $params->get('tos_button_text', JText::_('MOD_FRESHMAIL2_TOSLINK_BUTTON_TEXT')))) ?>
+					<?php else : ?>
+						<?php echo JText::sprintf('MOD_FRESHMAIL2_TOSLINK_TEXT', JRoute::_($tosLink), $params->get('tos_button_text', JText::_('MOD_FRESHMAIL2_TOSLINK_BUTTON_TEXT'))) ?>
+					<?php endif ?>
+				</small>
 			</label>
 		</div>
 		<?php endif ?>
