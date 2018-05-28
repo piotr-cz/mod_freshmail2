@@ -209,7 +209,7 @@ class JFmRestApi // extends FmRestApi
 	 * @throws  RestException
 	 * @throws  Exception
 	 *
-	 * @note    `No HTTP response received` means no connection
+	 * @note    'No HTTP response received' means no connection
 	 */
 	public function doRequest($strUrl, $arrParams = array(), $boolRawResponse = false)
 	{
@@ -246,7 +246,7 @@ class JFmRestApi // extends FmRestApi
 		if ($this->contentType)
 		{
 			/* Workaround nasty J2.5 bug:
-			 * use `Content-type` Transport will add `Content-type:application/x-www-form-urlencoded`
+			 * use 'Content-type' Transport will add 'Content-type:application/x-www-form-urlencoded'
 			 * and request will result in auth denied. (ERROR 1000)
 			 */
 			if (version_compare(JVERSION, '3', '<'))

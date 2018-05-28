@@ -555,7 +555,7 @@ class ModFreshmail2Helper
 		}
 
 		/* Build payload
-		 * Note: When `confirm` value is set to null, Double opt-in lists
+		 * Note: When 'confirm' value is set to null, Double opt-in lists
 		 * don't send auto confirmations.
 		 * Inconsistency in API docs: http://freshmail.pl/developer-api/subskrybenci-zarzadzanie-subskrybentami/
 		 */
