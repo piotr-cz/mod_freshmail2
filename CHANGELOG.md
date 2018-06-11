@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 [Unreleased][unreleased]
 ------------------------
 
+[v1.2.3] - 2018-06-11
+### Added
+- GDRP options
+
 [v1.2.2] - 2018-05-25
 ---------------------
 ### Changed
@@ -92,8 +96,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Code refactor
 - Removal of `index.html` files
 
-[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.2...HEAD
-[v1.2.1]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.1...v1.2.2
+[unreleased]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.3...HEAD
+[v1.2.3]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.2...v1.2.3
+[v1.2.2]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.1...v1.2.2
 [v1.2.1]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.7...v1.2.0
 [v1.1.7]: https://github.com/piotr-cz/mod_freshmail2/compare/v1.1.6...v1.1.7
