@@ -8,35 +8,25 @@
 				<meta charset="utf-8" />
 				<title><xsl:value-of select="/updates/update/name" /> - Available downloads</title>
 
-				<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/css/bootstrap.min.css" />
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5/font/bootstrap-icons.min.css" />
+
 				<style type="text/css">
-					.jumbotron {
-						padding: .25em 0;
-						border-bottom: 1px solid #333;
-					}
-
-					.table .label {
-						line-height: inherit;
-					}
-
-					.btn > .glyphicon {
-						margin-left: .66em;
-					}
 				</style>
 			</head>
 			<body>
-				<div class="jumbotron">
-					<div class="container">
-						<h1>
+				<div class="bg-light border-bottom">
+					<div class="container py-3">
+						<h1 class="display-5">
 							<xsl:value-of select="/updates/update/name" />
 						</h1>
-						<p>
+						<p class="lead">
 							Available downloads
 						</p>
 					</div>
 				</div>
 				<div class="container table-responsive">
-					<table class="table table-striped table-hover table-condensed">
+					<table class="table table-striped table-hover table-sm">
 						<colgroup>
 							<col />
 							<col span="3" width="12%" />
@@ -44,7 +34,7 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<th class="text-right">
+								<th class="text-end">
 									Version
 								</th>
 								<th>
@@ -87,38 +77,38 @@
 							</xsl:variable>
 
 							<tr class="{$firstRow}">
-								<th class="text-right">
+								<th class="text-end">
 									<xsl:value-of select="version" />
 								</th>
 								<td>
-									<span class="label label-{$stabilityLabel}">
+									<span class="badge bg-{$stabilityLabel}">
 										<xsl:value-of select="tags/tag" />
 									</span>
 								</td>
 								<td>
-									<span class="badge">
+									<span class="badge bg-secondary">
 										<xsl:value-of select="targetplatform/@version" />
 									</span>
 								</td>
 								<td>
 									<xsl:if test="php_minimum">
-										<span class="badge">
+										<span class="badge bg-secondary">
 											<xsl:value-of select="php_minimum" />
 										</span>
 									</xsl:if>
 								</td>
 								<td>
-									<a class="btn btn-xs btn-info" href="{infourl}" target="info" title="Open release notes">
+									<a class="btn btn-sm btn-info text-nowrap" href="{infourl}" target="info" title="Open release notes">
 										Info
-										<span class="glyphicon glyphicon-info-sign"></span>
+										<span class="ms-2 bi-info-circle-fill"></span>
 									</a>
 								</td>
 								<td>
 									<div class="btn-group" role="group">
 									<xsl:for-each select="downloads/downloadurl">
-										<a class="btn btn-xs btn-primary" href="{.}" target="download" title="Download in {@format} format">
+										<a class="btn btn-sm btn-primary text-nowrap" href="{.}" target="download" title="Download in {@format} format">
 											<xsl:value-of select="@format" />
-											<span class="glyphicon glyphicon-download"></span>
+											<span class="ms-2 bi-download"></span>
 										</a>
 									</xsl:for-each>
 									</div>
